@@ -12,6 +12,8 @@ class CreateCommentGroupsTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->timestamps();
+
+            $table->string('slug')->unique();
         });
     }
 
