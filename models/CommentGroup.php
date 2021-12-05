@@ -53,13 +53,7 @@ class CommentGroup extends Model
      */
     protected $hidden = [];
 
-    /**
-     * @var array Attributes to be cast to Argon (Carbon) instances
-     */
-    protected $dates = [
-        'created_at',
-        'updated_at'
-    ];
+    public $timestamps = false;
 
     /**
      * @var array Relations
