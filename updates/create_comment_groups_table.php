@@ -13,7 +13,9 @@ class CreateCommentGroupsTable extends Migration
             $table->increments('id');
             $table->timestamps();
 
-            $table->string('slug')->unique();
+            $table->string('table_name');
+            $table->string('column_name');
+            $table->string('value');
         });
     }
 
