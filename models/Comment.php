@@ -4,6 +4,14 @@ use Model;
 
 /**
  * Comment Model
+ * @property int $id
+ * @property int $user_id
+ * @property int $group_id
+ * @property int $parent_id
+ * @property string $user_name
+ * @property string $user_email
+ * @property string $comment
+ * @property int $active
  */
 class Comment extends Model
 {

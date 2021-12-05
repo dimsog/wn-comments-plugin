@@ -4,6 +4,10 @@ use Model;
 
 /**
  * CommentGroup Model
+ * @property int $id
+ * @property string $table
+ * @property string $column
+ * @property string $value
  */
 class CommentGroup extends Model
 {
