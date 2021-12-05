@@ -13,8 +13,8 @@ class CreateCommentGroupsTable extends Migration
             $table->increments('id');
             $table->timestamps();
 
-            $table->string('table_name');
-            $table->string('column_name');
+            $table->string('table');
+            $table->string('column');
             $table->string('value');
         });
     }
