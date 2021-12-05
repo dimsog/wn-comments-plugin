@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Comment
+
+# Model Form Field configuration
+form: $/dimsog/comments/models/comment/fields.yaml
+
+# Model Class name
+modelClass: Dimsog\Comments\Models\Comment
+
+# Default redirect location
+defaultRedirect: dimsog/comments/comments
+
+# Create page
+create:
+    title: backend::lang.form.create_title
+    redirect: dimsog/comments/comments/update/:id
+    redirectClose: dimsog/comments/comments
+
+# Update page
+update:
+    title: backend::lang.form.update_title
+    redirect: dimsog/comments/comments
+    redirectClose: dimsog/comments/comments
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title
