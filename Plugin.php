@@ -11,10 +11,10 @@ class Plugin extends PluginBase
     public function pluginDetails(): array
     {
         return [
-            'name'        => 'Comments',
-            'description' => 'No description provided yet...',
+            'name'        => 'dimsog.comments::lang.plugin.name',
+            'description' => 'dimsog.comments::lang.plugin.description',
             'author'      => 'Dimsog',
-            'icon'        => 'icon-leaf'
+            'icon'        => 'icon-comments'
         ];
     }
 
