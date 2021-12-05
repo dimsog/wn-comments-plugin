@@ -20,6 +20,21 @@ class Plugin extends PluginBase
 
     public function registerNavigation(): array
     {
-        return [];
+        return [
+            'comments' => [
+                'label'       => 'dimsog.comments::lang.plugin.name',
+                'url'         => Backend::url('dimsog/comments/comments'),
+                'icon'        => 'icon-comments',
+                'permissions' => ['*'],
+                'order'       => 500,
+                'sideMenu' => [
+                    'comments' => [
+                        'label'       => 'dimsog.comments::lang.plugin.name',
+                        'icon'        => 'icon-comments',
+                        'url'         => Backend::url('dimsog/comments/comments'),
+                    ]
+                ]
+            ]
+        ];
     }
 }
