@@ -1,4 +1,6 @@
-<?php namespace Dimsog\Comments\Components;
+<?php
+
+namespace Dimsog\Comments\Components;
 
 use Cms\Classes\ComponentBase;
 
