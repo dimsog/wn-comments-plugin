@@ -4,7 +4,7 @@ use Cms\Classes\ComponentBase;
 
 class Comments extends ComponentBase
 {
-    public function componentDetails()
+    public function componentDetails(): array
     {
         return [
             'name'        => 'Comments Component',
@@ -12,7 +12,7 @@ class Comments extends ComponentBase
         ];
     }
 
-    public function defineProperties()
+    public function defineProperties(): array
     {
         return [];
     }
