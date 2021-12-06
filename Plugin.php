@@ -3,6 +3,8 @@
 namespace Dimsog\Comments;
 
 use Backend;
+use Dimsog\Comments\Components\CommentForm;
+use Dimsog\Comments\Components\Comments;
 use System\Classes\PluginBase;
 
 
@@ -35,6 +37,14 @@ class Plugin extends PluginBase
                     ]
                 ]
             ]
+        ];
+    }
+
+    public function registerComponents(): array
+    {
+        return [
+            Comments::class => 'comments',
+            CommentForm::class => 'commentForm'
         ];
     }
 }
