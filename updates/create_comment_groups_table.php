@@ -11,8 +11,6 @@ class CreateCommentGroupsTable extends Migration
         Schema::create('dimsog_comments_comment_groups', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->timestamps();
-
             $table->string('url');
         });
     }
