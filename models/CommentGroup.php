@@ -5,9 +5,7 @@ use Model;
 /**
  * CommentGroup Model
  * @property int $id
- * @property string $table
- * @property string $column
- * @property string $value
+ * @property string $url
  */
 class CommentGroup extends Model
 {
