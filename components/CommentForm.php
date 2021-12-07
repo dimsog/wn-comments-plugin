@@ -9,8 +9,8 @@ class CommentForm extends ComponentBase
     public function componentDetails(): array
     {
         return [
-            'name'        => 'CommentForm Component',
-            'description' => 'No description provided yet...'
+            'name'        => 'dimsog.comments::lang.components.commentForm.name',
+            'description' => 'dimsog.comments::lang.components.commentForm.description'
         ];
     }
 
