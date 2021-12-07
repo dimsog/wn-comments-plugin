@@ -16,6 +16,12 @@ class CommentForm extends ComponentBase
 
     public function defineProperties(): array
     {
-        return [];
+        return [
+            'url' => [
+                'title' => 'dimsog.comments::lang.components.commentForm.properties.url',
+                'type' => 'string',
+                'required' => true
+            ]
+        ];
     }
 }

@@ -8,7 +8,10 @@ return [
     'components' => [
         'commentForm' => [
             'name' => 'CommentForm',
-            'description' => ''
+            'description' => '',
+            'properties' => [
+                'url' => 'URL'
+            ]
         ]
     ]
 ];
