@@ -1,3 +1,14 @@
-<p>This is the default markup for component CommentForm</p>
-
-<small>You can delete this file if you want</small>
+<form data-request="{{ __SELF__ }}::onCommentStore">
+    <div class="mb-4">
+        <label for="{{ __SELF__ }}-name">Your name</label>
+        <input type="text" name="name" id="{{ __SELF__ }}-name" class="form-control" required>
+    </div>
+    <div class="mb-4">
+        <label for="{{ __SELF__ }}-email">Your email</label>
+        <input type="email" name="email" id="{{ __SELF__ }}-email" class="form-control" required>
+    </div>
+    <div class="mb-4">
+        <label for="{{ __SELF__ }}-comment">Comment</label>
+        <textarea name="comment" id="{{ __SELF__ }}-comment" class="form-control" required></textarea>
+    </div>
+</form>
