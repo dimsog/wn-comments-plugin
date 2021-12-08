@@ -3,10 +3,12 @@
         <label for="{{ __SELF__ }}-name" class="dimsog-comment-form-field__label">Your name</label>
         <input type="text" name="name"  id="{{ __SELF__ }}-name" class="dimsog-comment-form-field__input" required>
     </div>
+    {% if properties.email %}
     <div class="mb-4">
         <label for="{{ __SELF__ }}-email" class="dimsog-comment-form-field__label">Your email</label>
         <input type="email" name="email" id="{{ __SELF__ }}-email" class="dimsog-comment-form-field__input" required>
     </div>
+    {% endif %}
     <div class="mb-4">
         <label for="{{ __SELF__ }}-comment" class="dimsog-comment-form-field__label">Comment</label>
         <textarea name="comment" id="{{ __SELF__ }}-comment" class="dimsog-comment-form-field__input" required></textarea>
