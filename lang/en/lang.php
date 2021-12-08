@@ -6,8 +6,8 @@ return [
         'description' => 'No description'
     ],
     'components' => [
-        'commentForm' => [
-            'name' => 'CommentForm',
+        'commentsForm' => [
+            'name' => 'CommentsForm',
             'description' => '',
             'properties' => [
                 'url' => 'URL',

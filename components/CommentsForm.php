@@ -9,8 +9,8 @@ class CommentsForm extends ComponentBase
     public function componentDetails(): array
     {
         return [
-            'name'        => 'dimsog.comments::lang.components.commentForm.name',
-            'description' => 'dimsog.comments::lang.components.commentForm.description'
+            'name'        => 'dimsog.comments::lang.components.commentsForm.name',
+            'description' => 'dimsog.comments::lang.components.commentsForm.description'
         ];
     }
 
@@ -18,12 +18,12 @@ class CommentsForm extends ComponentBase
     {
         return [
             'url' => [
-                'title' => 'dimsog.comments::lang.components.commentForm.properties.url',
+                'title' => 'dimsog.comments::lang.components.commentsForm.properties.url',
                 'type' => 'string',
                 'required' => true
             ],
             'email' => [
-                'title' => 'dimsog.comments::lang.components.commentForm.properties.email',
+                'title' => 'dimsog.comments::lang.components.commentsForm.properties.email',
                 'type' => 'checkbox',
                 'default' => true
             ]
