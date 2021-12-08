@@ -21,6 +21,11 @@ class CommentsForm extends ComponentBase
                 'title' => 'dimsog.comments::lang.components.commentForm.properties.url',
                 'type' => 'string',
                 'required' => true
+            ],
+            'email' => [
+                'title' => 'dimsog.comments::lang.components.commentForm.properties.email',
+                'type' => 'checkbox',
+                'default' => true
             ]
         ];
     }

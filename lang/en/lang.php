@@ -10,7 +10,8 @@ return [
             'name' => 'CommentForm',
             'description' => '',
             'properties' => [
-                'url' => 'URL'
+                'url' => 'URL',
+                'email' => 'Show email'
             ]
         ]
     ]
