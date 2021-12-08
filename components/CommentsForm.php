@@ -14,6 +14,11 @@ class CommentsForm extends ComponentBase
         ];
     }
 
+    public function onRender()
+    {
+        $this->page['properties'] = $this->properties;
+    }
+
     public function defineProperties(): array
     {
         return [
