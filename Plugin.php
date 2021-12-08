@@ -44,7 +44,7 @@ class Plugin extends PluginBase
     {
         return [
             Comments::class => 'comments',
-            CommentsForm::class => 'commentForm'
+            CommentsForm::class => 'commentsForm'
         ];
     }
 }
