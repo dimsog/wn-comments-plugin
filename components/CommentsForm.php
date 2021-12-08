@@ -4,7 +4,7 @@ namespace Dimsog\Comments\Components;
 
 use Cms\Classes\ComponentBase;
 
-class CommentForm extends ComponentBase
+class CommentsForm extends ComponentBase
 {
     public function componentDetails(): array
     {
