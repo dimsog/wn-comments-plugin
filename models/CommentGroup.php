@@ -24,7 +24,9 @@ class CommentGroup extends Model
     /**
      * @var array Fillable fields
      */
-    protected $fillable = [];
+    protected $fillable = [
+        'url'
+    ];
 
     /**
      * @var array Validation rules for attributes
