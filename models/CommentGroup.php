@@ -14,7 +14,7 @@ class CommentGroup extends Model
     /**
      * @var string The database table used by the model.
      */
-    public $table = 'dimsog_comments_comment_groups';
+    public $table = 'dimsog_comments_groups';
 
     /**
      * @var array Guarded fields

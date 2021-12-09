@@ -8,7 +8,7 @@ class CreateCommentsTable extends Migration
 {
     public function up()
     {
-        Schema::create('dimsog_comments_comments', function (Blueprint $table) {
+        Schema::create('dimsog_comments', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->timestamps();
@@ -21,7 +21,7 @@ class CreateCommentsTable extends Migration
             $table->text('comment')->nullable();
             $table->unsignedTinyInteger('active')->default(0);
 
-            $table->foreign('group_id')->references('id')->on('dimsog_comments_comment_groups')
+            $table->foreign('group_id')->references('id')->on('dimsog_comments_groups')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
         });
@@ -29,6 +29,6 @@ class CreateCommentsTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('dimsog_comments_comments');
+        Schema::dropIfExists('dimsog_comments');
     }
 }

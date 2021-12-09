@@ -20,7 +20,7 @@ class Comment extends Model
     /**
      * @var string The database table used by the model.
      */
-    public $table = 'dimsog_comments_comments';
+    public $table = 'dimsog_comments';
 
     /**
      * @var array Guarded fields
