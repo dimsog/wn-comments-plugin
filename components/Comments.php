@@ -9,8 +9,8 @@ class Comments extends ComponentBase
     public function componentDetails(): array
     {
         return [
-            'name'        => 'Comments Component',
-            'description' => 'No description provided yet...'
+            'name'        => 'dimsog.comments::lang.components.comments.name',
+            'description' => 'dimsog.comments::lang.components.comments.description'
         ];
     }
 

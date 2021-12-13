@@ -6,6 +6,10 @@ return [
         'description' => 'No description'
     ],
     'components' => [
+        'comments' => [
+            'name' => 'Comments List',
+            'description' => ''
+        ],
         'commentsForm' => [
             'name' => 'CommentsForm',
             'description' => '',
