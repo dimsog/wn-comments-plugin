@@ -1,4 +1,4 @@
 1.0.0:
     - First version of comments
     - create_comment_groups_table.php
-    - create_Comments_table.php
+    - create_comments_table.php
