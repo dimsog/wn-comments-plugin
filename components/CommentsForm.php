@@ -7,6 +7,7 @@ use Dimsog\Comments\Models\Comment;
 use Dimsog\Comments\Models\CommentGroup;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Contracts\Validation\Validator as ValidatorInterface;
+use Illuminate\Validation\Rule;
 use Winter\Storm\Exception\AjaxException;
 
 class CommentsForm extends ComponentBase
@@ -29,6 +30,7 @@ class CommentsForm extends ComponentBase
         $this->validateOrFail();
         $group = $this->findOrCreateNewGroupFromRequest();
         $model = new Comment();
+        $model->parent_id = (int) post('parent_id', 0);
         $model->group_id = $group->id;
         $model->user_name = post('name');
         $model->user_email = post('email');
@@ -84,6 +86,11 @@ class CommentsForm extends ComponentBase
     private function makeValidator(array $data): ValidatorInterface
     {
         $rules = [
+            'parent_id' => [
+                'sometimes',
+                Rule::exists('dimsog_comments')
+                    ->where('active', 1)
+            ],
             'name' => 'required|string',
             'email' => 'required|email',
             'comment' => 'required|string'
