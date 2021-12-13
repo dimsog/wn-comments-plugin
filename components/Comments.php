@@ -16,6 +16,12 @@ class Comments extends ComponentBase
 
     public function defineProperties(): array
     {
-        return [];
+        return [
+            'url' => [
+                'title' => 'dimsog.comments::lang.components.comments.properties.url',
+                'type' => 'string',
+                'required' => true
+            ],
+        ];
     }
 }
