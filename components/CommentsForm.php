@@ -2,7 +2,7 @@
 
 namespace Dimsog\Comments\Components;
 
-use Cms\Classes\ComponentBase;
+use Dimsog\Comments\Classes\ComponentBase;
 use Dimsog\Comments\Models\Comment;
 use Dimsog\Comments\Models\CommentGroup;
 use Illuminate\Support\Facades\Validator;

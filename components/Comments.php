@@ -2,7 +2,7 @@
 
 namespace Dimsog\Comments\Components;
 
-use Cms\Classes\ComponentBase;
+use Dimsog\Comments\Classes\ComponentBase;
 
 class Comments extends ComponentBase
 {
