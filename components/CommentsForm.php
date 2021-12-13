@@ -74,12 +74,8 @@ class CommentsForm extends ComponentBase
 
     private function findOrCreateNewGroupFromRequest(): CommentGroup
     {
-        $url = $this->property('url');
-        if (empty($this->url)) {
-            $url = request()->path();
-        }
         return CommentGroup::firstOrCreate([
-            'url' => $url
+            'url' => $this->getUrl()
         ]);
     }
 
