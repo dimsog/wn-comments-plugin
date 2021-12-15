@@ -1,6 +1,7 @@
-<form class="dimsog-comment-form" data-request="{{ __SELF__ }}::onCommentStore">
+<form id="app-dimsog-comment-form" class="dimsog-comment-form" data-request="{{ __SELF__ }}::onCommentStore">
     <input type="hidden" name="parent_id" value="">
     <div id="{{ __SELF__ }}-flash"></div>
+    <div id="app-dimsog-comment-form-answer-block"></div>
     <div class="dimsog-comment-form-field">
         <label for="{{ __SELF__ }}-name" class="dimsog-comment-form-field__label">Your name</label>
         <input type="text" name="name"  id="{{ __SELF__ }}-name" class="dimsog-comment-form-field__input" required>
