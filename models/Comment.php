@@ -1,5 +1,6 @@
 <?php namespace Dimsog\Comments\Models;
 
+use Illuminate\Database\Eloquent\Collection;
 use Model;
 
 /**
@@ -79,4 +80,12 @@ class Comment extends Model
     public $morphMany = [];
     public $attachOne = [];
     public $attachMany = [];
+
+
+    public static function findCommentsFromGroupId(int $groupId): Collection
+    {
+        return static::where('group_id', $groupId)
+            ->orderBy('id')
+            ->get();
+    }
 }

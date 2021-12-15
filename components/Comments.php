@@ -3,15 +3,31 @@
 namespace Dimsog\Comments\Components;
 
 use Dimsog\Comments\Classes\ComponentBase;
+use Dimsog\Comments\Classes\CommentsTreeGenerator;
+use Dimsog\Comments\Models\Comment;
 
 class Comments extends ComponentBase
 {
+    private $comments = [];
+
+
     public function componentDetails(): array
     {
         return [
             'name'        => 'dimsog.comments::lang.components.comments.name',
             'description' => 'dimsog.comments::lang.components.comments.description'
         ];
+    }
+
+    public function onRun()
+    {
+        $group = $this->findOrCreateNewGroup();
+        $this->comments = (new CommentsTreeGenerator(Comment::findCommentsFromGroupId($group->id)))->generate();
+    }
+
+    public function onRender()
+    {
+        $this->page['comments'] = $this->comments;
     }
 
     public function defineProperties(): array
