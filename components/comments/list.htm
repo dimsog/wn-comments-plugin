@@ -7,5 +7,10 @@
     <div>
         {{ comment.comment }}
     </div>
+    {% if tree %}
+    <div class="dimsog-comment-item-answer">
+        <a href="#">Answer</a>
+    </div>
+    {% endif %}
 </div>
 {% endfor %}

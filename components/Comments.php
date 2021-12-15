@@ -28,6 +28,7 @@ class Comments extends ComponentBase
     public function onRender()
     {
         $this->page['comments'] = $this->comments;
+        $this->page['tree'] = $this->property('tree');
     }
 
     public function defineProperties(): array
