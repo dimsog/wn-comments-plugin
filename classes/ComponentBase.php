@@ -3,6 +3,7 @@
 namespace Dimsog\Comments\Classes;
 
 use Cms\Classes\ComponentBase as WinterComponentBase;
+use Dimsog\Comments\Models\CommentGroup;
 
 abstract class ComponentBase extends WinterComponentBase
 {
@@ -13,5 +14,12 @@ abstract class ComponentBase extends WinterComponentBase
             $url = request()->path();
         }
         return $url;
+    }
+
+    protected function findOrCreateNewGroupFromRequest(): CommentGroup
+    {
+        return CommentGroup::firstOrCreate([
+            'url' => $this->getUrl()
+        ]);
     }
 }

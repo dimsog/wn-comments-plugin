@@ -72,13 +72,6 @@ class CommentsForm extends ComponentBase
         }
     }
 
-    private function findOrCreateNewGroupFromRequest(): CommentGroup
-    {
-        return CommentGroup::firstOrCreate([
-            'url' => $this->getUrl()
-        ]);
-    }
-
     private function makeValidator(array $data): ValidatorInterface
     {
         $rules = [
