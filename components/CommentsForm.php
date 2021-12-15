@@ -4,7 +4,6 @@ namespace Dimsog\Comments\Components;
 
 use Dimsog\Comments\Classes\ComponentBase;
 use Dimsog\Comments\Models\Comment;
-use Dimsog\Comments\Models\CommentGroup;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Contracts\Validation\Validator as ValidatorInterface;
 use Illuminate\Validation\Rule;
