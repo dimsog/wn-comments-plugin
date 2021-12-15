@@ -28,7 +28,7 @@ class CommentsForm extends ComponentBase
     public function onCommentStore()
     {
         $this->validateOrFail();
-        $group = $this->findOrCreateNewGroupFromRequest();
+        $group = $this->findOrCreateNewGroup();
         $model = new Comment();
         $model->parent_id = (int) post('parent_id', 0);
         $model->group_id = $group->id;

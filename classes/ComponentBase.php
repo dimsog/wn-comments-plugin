@@ -16,7 +16,7 @@ abstract class ComponentBase extends WinterComponentBase
         return $url;
     }
 
-    protected function findOrCreateNewGroupFromRequest(): CommentGroup
+    protected function findOrCreateNewGroup(): CommentGroup
     {
         return CommentGroup::firstOrCreate([
             'url' => $this->getUrl()
