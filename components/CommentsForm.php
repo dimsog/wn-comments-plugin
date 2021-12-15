@@ -50,7 +50,7 @@ class CommentsForm extends ComponentBase
             'url' => [
                 'title' => 'dimsog.comments::lang.components.commentsForm.properties.url',
                 'type' => 'string',
-                'required' => true
+                'required' => false
             ],
             'email' => [
                 'title' => 'dimsog.comments::lang.components.commentsForm.properties.email',
