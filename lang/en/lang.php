@@ -18,7 +18,8 @@ return [
             'description' => '',
             'properties' => [
                 'url' => 'URL',
-                'email' => 'Show email'
+                'email' => 'Show email',
+                'moderate' => 'Moderate comments'
             ]
         ]
     ]
