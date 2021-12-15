@@ -1,5 +1,5 @@
 {% for comment in comments[parentId] %}
-<div class="dimsog-comment-item">
+<div id="comment-{{ comment.id }}" class="dimsog-comment-item">
     <div class="dimsog-comment-item-header">
         <div class="dimsog-comment-item-header__user">{{ comment.user_name }}</div>
         <div class="dimsog-comment-item-header__date">{{ comment.created_at }}</div>
