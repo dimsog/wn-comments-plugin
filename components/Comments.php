@@ -36,7 +36,7 @@ class Comments extends ComponentBase
             'url' => [
                 'title' => 'dimsog.comments::lang.components.comments.properties.url',
                 'type' => 'string',
-                'required' => true
+                'required' => false
             ],
         ];
     }
