@@ -10,7 +10,8 @@ return [
             'name' => 'Comments List',
             'description' => '',
             'properties' => [
-                'url' => 'URL'
+                'url' => 'URL',
+                'tree' => 'Tree'
             ]
         ],
         'commentsForm' => [

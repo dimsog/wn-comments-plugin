@@ -38,6 +38,11 @@ class Comments extends ComponentBase
                 'type' => 'string',
                 'required' => false
             ],
+            'tree' => [
+                'title' => 'dimsog.comments::lang.components.comments.properties.tree',
+                'type' => 'checkbox',
+                'default' => true
+            ]
         ];
     }
 }
