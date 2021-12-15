@@ -82,8 +82,10 @@ class CommentsForm extends ComponentBase
         $rules = [
             'parent_id' => [
                 'sometimes',
-                Rule::exists('dimsog_comments')
-                    ->where('active', 1)
+                Rule::exists('dimsog_comments', 'id')
+                    ->where(function ($query) {
+                        $query->where('active', 1);
+                    })
             ],
             'name' => 'required|string',
             'email' => 'required|email',
