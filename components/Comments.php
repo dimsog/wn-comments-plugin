@@ -22,6 +22,7 @@ class Comments extends ComponentBase
     public function onRun()
     {
         $this->controller->addJs('/plugins/dimsog/comments/assets/script.js');
+        $this->controller->addCss('/plugins/dimsog/comments/assets/style.css');
         $group = $this->findOrCreateNewGroup();
         $this->comments = (new CommentsTreeGenerator(Comment::findCommentsFromGroupId($group->id)))->generate();
     }
