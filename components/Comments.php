@@ -30,6 +30,7 @@ class Comments extends ComponentBase
     {
         $this->page['comments'] = $this->comments;
         $this->page['tree'] = $this->property('tree');
+        $this->page['dateformat'] = $this->property('dateformat');
     }
 
     public function defineProperties(): array
@@ -44,6 +45,11 @@ class Comments extends ComponentBase
                 'title' => 'dimsog.comments::lang.components.comments.properties.tree',
                 'type' => 'checkbox',
                 'default' => true
+            ],
+            'dateformat' => [
+                'title' => 'dimsog.comments::lang.components.comments.properties.dateformat',
+                'type' => 'string',
+                'default' => 'd.m.Y H:i'
             ]
         ];
     }

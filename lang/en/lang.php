@@ -11,7 +11,8 @@ return [
             'description' => '',
             'properties' => [
                 'url' => 'URL',
-                'tree' => 'Tree'
+                'tree' => 'Tree',
+                'dateformat' => 'Date format'
             ]
         ],
         'commentsForm' => [
