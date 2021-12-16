@@ -1,3 +1,8 @@
+.dimsog-comment-item .dimsog-comment-item-header {
+    display: flex;
+}
+
 .dimsog-comment-item .dimsog-comment-item-header .dimsog-comment-item-header__user {
     font-weight: 600;
+    padding-right: 10px;
 }
