@@ -18,6 +18,10 @@
     color: #FFF;
 }
 
+.dimsog-comment-item {
+    padding-bottom: 10px;
+}
+
 .dimsog-comment-item .dimsog-comment-item-header {
     display: flex;
     align-items: center;
