@@ -24,6 +24,7 @@
 }
 
 .dimsog-comment-item .dimsog-comment-item-answer .dimsog-comment-item-answer__link {
+    text-decoration: none;
     border-bottom: 1px dashed #838384;
     color: #838384;
 }
