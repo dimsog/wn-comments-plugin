@@ -6,3 +6,7 @@
     font-weight: 600;
     padding-right: 10px;
 }
+
+.dimsog-comment-item .dimsog-comment-item {
+    padding-left: 15px;
+}

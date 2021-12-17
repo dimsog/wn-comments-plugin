@@ -14,9 +14,7 @@
     {% endif %}
 
     {% if comments[comment.id] is not empty %}
-        <div class="dimsog-comments-sub-wrapper">
-            {% partial '@list' parentId = comment.id %}
-        </div>
+        {% partial '@list' parentId = comment.id %}
     {% endif %}
 </div>
 {% endfor %}
