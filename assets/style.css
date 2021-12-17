@@ -2,6 +2,10 @@
     display: block;
 }
 
+.dimsog-comment-form .dimsog-comment-form-field {
+    padding-bottom: 10px;
+}
+
 .dimsog-comment-form .dimsog-comment-form-field__input {
     width: 100%;
     padding: 5px;
