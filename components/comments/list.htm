@@ -5,7 +5,7 @@
         <div class="dimsog-comment-item-header__date">{{ comment.created_at | date(dateformat) }}</div>
     </div>
     <div>
-        {{ comment.comment }}
+        {{ comment.comment | nl2br }}
     </div>
     {% if tree %}
     <div class="dimsog-comment-item-answer">
