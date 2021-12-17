@@ -27,6 +27,10 @@
     color: #FFF;
 }
 
+.dimsog-comment-form .dimsog-comment-form-field__btn:hover {
+    background: #2889e3;
+}
+
 .dimsog-comment-item {
     padding-bottom: 10px;
     color: #000;
