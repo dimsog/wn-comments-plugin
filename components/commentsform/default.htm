@@ -3,17 +3,17 @@
     <div id="{{ __SELF__ }}-flash"></div>
     <div id="app-dimsog-comment-form-answer-block"></div>
     <div class="dimsog-comment-form-field">
-        <label for="{{ __SELF__ }}-name" class="dimsog-comment-form-field__label">Your name</label>
+        <label for="{{ __SELF__ }}-name" class="dimsog-comment-form-field__label">Your name:</label>
         <input type="text" name="name"  id="{{ __SELF__ }}-name" class="dimsog-comment-form-field__input" required>
     </div>
     {% if properties.email %}
     <div class="dimsog-comment-form-field">
-        <label for="{{ __SELF__ }}-email" class="dimsog-comment-form-field__label">Your email</label>
+        <label for="{{ __SELF__ }}-email" class="dimsog-comment-form-field__label">Your email:</label>
         <input type="email" name="email" id="{{ __SELF__ }}-email" class="dimsog-comment-form-field__input" required>
     </div>
     {% endif %}
     <div class="dimsog-comment-form-field">
-        <label for="{{ __SELF__ }}-comment" class="dimsog-comment-form-field__label">Comment</label>
+        <label for="{{ __SELF__ }}-comment" class="dimsog-comment-form-field__label">Comment:</label>
         <textarea name="comment" id="{{ __SELF__ }}-comment" class="dimsog-comment-form-field__input" required></textarea>
     </div>
     <div class="dimsog-comment-form-field dimsog-comment-form-field-button">
