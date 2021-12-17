@@ -10,7 +10,7 @@
                 var $answerToBlock = $form.querySelector('#app-dimsog-comment-form-answer-block');
 
                 $parentIdInput.value = e.target.dataset.commentId;
-                $answerToBlock.innerHTML = '<div><i class="icon-reply"></i> ' + e.target.dataset.userName + '</div>';
+                $answerToBlock.innerHTML = '<div class="dimsog-comment-form-field dimsog-comment-form-field--reply-user"><i class="icon-reply"></i> ' + e.target.dataset.userName + '</div>';
             });
         });
 })();
