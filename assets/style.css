@@ -22,6 +22,17 @@
     padding-bottom: 10px;
 }
 
+.dimsog-comment-item .dimsog-comment-item-answer .dimsog-comment-item-answer__link {
+    border-bottom: 1px dashed #838384;
+    color: #838384;
+}
+
+.dimsog-comment-item .dimsog-comment-item-answer .dimsog-comment-item-answer__link:hover {
+    text-decoration: none;
+    border-bottom-color: #317bd3;
+    color: #317bd3;
+}
+
 .dimsog-comment-item .dimsog-comment-item-header {
     display: flex;
     align-items: center;
