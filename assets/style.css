@@ -1,3 +1,15 @@
+.dimsog-comment-form label {
+    display: block;
+}
+
+.dimsog-comment-form .dimsog-comment-form-field__input {
+    width: 100%;
+    padding: 5px;
+    border-radius: 3px;
+    border: 1px solid #9e9e9e;
+    outline: none;
+}
+
 .dimsog-comment-item .dimsog-comment-item-header {
     display: flex;
 }
