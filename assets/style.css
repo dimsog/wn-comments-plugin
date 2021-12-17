@@ -14,6 +14,14 @@
     outline: none;
 }
 
+.dimsog-comment-form .dimsog-comment-form-field__btn {
+    background: #3386d3;
+    padding: 7px 15px;
+    border: none;
+    border-radius: 5px;
+    color: #FFF;
+}
+
 .dimsog-comment-item .dimsog-comment-item-header {
     display: flex;
 }
