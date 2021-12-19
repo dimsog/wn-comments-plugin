@@ -31,6 +31,10 @@
     background: #2889e3;
 }
 
+.dimsog-comments-wrapper {
+    padding-bottom: 30px;
+}
+
 .dimsog-comment-item {
     padding-top: 10px;
     color: #000;
