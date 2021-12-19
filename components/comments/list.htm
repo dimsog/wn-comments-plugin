@@ -7,7 +7,7 @@
     <div>
         {{ comment.comment | nl2br }}
     </div>
-    {% if tree %}
+    {% if tree and comment.active %}
     <div class="dimsog-comment-item-answer">
         <a href="#" class="dimsog-comment-item-answer__link app-dimsog-comment-item-answer__link" data-comment-id="{{ comment.id }}" data-user-name="{{ comment.user_name }}">answer</a>
     </div>
