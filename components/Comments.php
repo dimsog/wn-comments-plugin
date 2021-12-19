@@ -24,7 +24,7 @@ class Comments extends ComponentBase
         $this->controller->addJs('/plugins/dimsog/comments/assets/script.js');
         $this->controller->addCss('/plugins/dimsog/comments/assets/style.css');
         $group = $this->findOrCreateNewGroup();
-        $comments = Comment::findCommentsFromGroupId($group->id, (bool) $this->property('moderate'));
+        $comments = Comment::findCommentsFromGroupId($group->id, (bool) $this->property('onlyActive'));
         $this->comments = (new CommentsTreeGenerator($comments))->generate();
     }
 
@@ -53,8 +53,8 @@ class Comments extends ComponentBase
                 'type' => 'string',
                 'default' => 'd.m.Y H:i'
             ],
-            'moderate' => [
-                'title' => 'dimsog.comments::lang.components.comments.properties.moderate',
+            'onlyActive' => [
+                'title' => 'dimsog.comments::lang.components.comments.properties.onlyActive',
                 'type' => 'checkbox',
                 'default' => false
             ]

@@ -13,7 +13,7 @@ return [
                 'url' => 'URL',
                 'tree' => 'Tree',
                 'dateformat' => 'Date format',
-                'moderate' => 'Moderate comments'
+                'onlyActive' => 'Only active comments'
             ]
         ],
         'commentsForm' => [
