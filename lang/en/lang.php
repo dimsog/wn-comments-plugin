@@ -12,7 +12,8 @@ return [
             'properties' => [
                 'url' => 'URL',
                 'tree' => 'Tree',
-                'dateformat' => 'Date format'
+                'dateformat' => 'Date format',
+                'moderate' => 'Moderate comments'
             ]
         ],
         'commentsForm' => [

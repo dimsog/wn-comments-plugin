@@ -24,7 +24,8 @@ class Comments extends ComponentBase
         $this->controller->addJs('/plugins/dimsog/comments/assets/script.js');
         $this->controller->addCss('/plugins/dimsog/comments/assets/style.css');
         $group = $this->findOrCreateNewGroup();
-        $this->comments = (new CommentsTreeGenerator(Comment::findCommentsFromGroupId($group->id)))->generate();
+        $comments = Comment::findCommentsFromGroupId($group->id, (bool) $this->property('moderate'));
+        $this->comments = (new CommentsTreeGenerator($comments))->generate();
     }
 
     public function onRender()
@@ -51,6 +52,11 @@ class Comments extends ComponentBase
                 'title' => 'dimsog.comments::lang.components.comments.properties.dateformat',
                 'type' => 'string',
                 'default' => 'd.m.Y H:i'
+            ],
+            'moderate' => [
+                'title' => 'dimsog.comments::lang.components.comments.properties.moderate',
+                'type' => 'checkbox',
+                'default' => false
             ]
         ];
     }

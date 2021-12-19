@@ -82,9 +82,13 @@ class Comment extends Model
     public $attachMany = [];
 
 
-    public static function findCommentsFromGroupId(int $groupId): Collection
+    public static function findCommentsFromGroupId(int $groupId, bool $onlyActive = false): Collection
     {
-        return static::where('group_id', $groupId)
+        $query = static::where('group_id', $groupId);
+        if ($onlyActive) {
+            $query->where('active', 1);
+        }
+        return $query
             ->orderBy('id')
             ->get();
     }
