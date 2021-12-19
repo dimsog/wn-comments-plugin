@@ -32,8 +32,12 @@
 }
 
 .dimsog-comment-item {
-    padding-bottom: 10px;
+    padding-top: 10px;
     color: #000;
+}
+
+.dimsog-comment-item:first-child {
+    padding-top: 0;
 }
 
 .dimsog-comment-item .dimsog-comment-item-answer .dimsog-comment-item-answer__link {
