@@ -73,7 +73,9 @@ class Comment extends Model
     public $hasMany = [];
     public $hasOneThrough = [];
     public $hasManyThrough = [];
-    public $belongsTo = [];
+    public $belongsTo = [
+        'group' => [CommentGroup::class]
+    ];
     public $belongsToMany = [];
     public $morphTo = [];
     public $morphOne = [];

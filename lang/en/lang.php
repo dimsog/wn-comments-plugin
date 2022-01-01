@@ -29,5 +29,18 @@ return [
     'settings' => [
         'name' => 'Comments',
         'moderate' => 'Moderate comments'
+    ],
+    'models' => [
+        'comment' => [
+            'columns' => [
+                'id' => 'ID',
+                'created_at' => 'Created At',
+                'user_name' => 'User name',
+                'user_email' => 'User email',
+                'url' => 'URL',
+                'active' => 'Active',
+                'deleted' => 'Deleted'
+            ]
+        ]
     ]
 ];

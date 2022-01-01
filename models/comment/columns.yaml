@@ -4,5 +4,21 @@
 
 columns:
     id:
-        label: ID
+        label: dimsog.comments::lang.models.comment.columns.id
         searchable: true
+    created_at:
+        label: dimsog.comments::lang.models.comment.columns.created_at
+    user_name:
+        label: dimsog.comments::lang.models.comment.columns.user_name
+    user_email:
+        label: dimsog.comments::lang.models.comment.columns.user_email
+    url:
+        relation: group
+        select: url
+        label: dimsog.comments::lang.models.comment.columns.url
+    active:
+        type: switch
+        label: dimsog.comments::lang.models.comment.columns.active
+    deleted:
+        type: switch
+        label: dimsog.comments::lang.models.comment.columns.deleted
