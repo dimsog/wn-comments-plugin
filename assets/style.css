@@ -2,6 +2,14 @@
     padding-bottom: 10px;
 }
 
+.dimsog-comment-form .dimsog-comment-form-success {
+    background: #d1e7dd;
+    border: 1px solid #badbcc;
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
 .dimsog-comment-form .dimsog-comment-form-field--reply-user {
     font-weight: 600;
     color: #000;
