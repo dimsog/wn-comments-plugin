@@ -40,7 +40,7 @@ class CommentsForm extends ComponentBase
 
         return [
             '#' . $this->alias . '-flash' => $this->renderPartial('@flash/success.htm', [
-                'message' => 'A comment has been added.'
+                'message' => $this->getSuccessMessage()
             ])
         ];
     }
@@ -91,5 +91,13 @@ class CommentsForm extends ComponentBase
             unset($rules['email']);
         }
         return Validator::make($data, $rules);
+    }
+
+    private function getSuccessMessage(): string
+    {
+        if (Settings::isModerateComments()) {
+            return 'Your comment will be visible after approval';
+        }
+        return 'A comment has been added';
     }
 }
