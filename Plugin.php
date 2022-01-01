@@ -5,6 +5,7 @@ namespace Dimsog\Comments;
 use Backend;
 use Dimsog\Comments\Components\CommentsForm;
 use Dimsog\Comments\Components\Comments;
+use Dimsog\Comments\Models\Settings;
 use System\Classes\PluginBase;
 
 
@@ -36,6 +37,22 @@ class Plugin extends PluginBase
                         'url'         => Backend::url('dimsog/comments/comments'),
                     ]
                 ]
+            ]
+        ];
+    }
+
+    public function registerSettings(): array
+    {
+        return [
+            'comments' => [
+                'label' => 'Comments',
+                'description' => '',
+                'category' => 'Comments',
+                'icon' => 'icon-comments',
+                'class' => Settings::class,
+                'order' => 500,
+                'keywords' => 'comments',
+                'permissions' => []
             ]
         ];
     }
