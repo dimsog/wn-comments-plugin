@@ -40,6 +40,11 @@ return [
                 'url' => 'URL',
                 'active' => 'Active',
                 'deleted' => 'Deleted'
+            ],
+            'fields' => [
+                'user_name' => 'User name',
+                'user_email' => 'User email',
+                'comment' => 'Comment'
             ]
         ]
     ]

@@ -3,6 +3,13 @@
 # ===================================
 
 fields:
-    id:
-        label: ID
-        disabled: true
+    user_name:
+        label: dimsog.comments::lang.models.comment.fields.user_name
+        span: auto
+    user_email:
+        label: dimsog.comments::lang.models.comment.fields.user_email
+        span: auto
+    comment:
+        label: dimsog.comments::lang.models.comment.fields.comment
+        type: textarea
+        size: giant
