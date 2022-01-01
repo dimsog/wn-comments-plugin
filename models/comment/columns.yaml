@@ -19,6 +19,6 @@ columns:
     active:
         type: switch
         label: dimsog.comments::lang.models.comment.columns.active
-    deleted:
+    deleted_at:
         type: switch
         label: dimsog.comments::lang.models.comment.columns.deleted

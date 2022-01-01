@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Eloquent\Collection;
 use Model;
+use Winter\Storm\Database\Traits\SoftDelete;
 
 /**
  * Comment Model
@@ -17,6 +18,7 @@ use Model;
 class Comment extends Model
 {
     use \Winter\Storm\Database\Traits\Validation;
+    use SoftDelete;
 
     /**
      * @var string The database table used by the model.
@@ -91,6 +93,7 @@ class Comment extends Model
             $query->where('active', 1);
         }
         return $query
+            ->withTrashed()
             ->orderBy('id')
             ->get();
     }
