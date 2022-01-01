@@ -27,6 +27,7 @@ return [
         ]
     ],
     'settings' => [
-        'name' => 'Comments'
+        'name' => 'Comments',
+        'moderate' => 'Moderate comments'
     ]
 ];
