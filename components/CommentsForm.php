@@ -96,8 +96,8 @@ class CommentsForm extends ComponentBase
     private function getSuccessMessage(): string
     {
         if (Settings::isModerateComments()) {
-            return 'Your comment will be visible after approval';
+            return __('dimsog.comments::lang.components.commentsForm.success_message_moderate');
         }
-        return 'A comment has been added';
+        return __('dimsog.comments::lang.components.commentsForm.success_message');
     }
 }

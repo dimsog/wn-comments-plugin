@@ -21,7 +21,9 @@ return [
             'properties' => [
                 'url' => 'URL',
                 'email' => 'Show email'
-            ]
+            ],
+            'success_message_moderate' => 'Your comment will be visible after approval',
+            'success_message' => 'A comment has been added'
         ]
     ],
     'settings' => [
