@@ -25,5 +25,8 @@ return [
                 'moderate' => 'Moderate comments'
             ]
         ]
+    ],
+    'settings' => [
+        'name' => 'Comments'
     ]
 ];

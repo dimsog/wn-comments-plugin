@@ -45,9 +45,9 @@ class Plugin extends PluginBase
     {
         return [
             'comments' => [
-                'label' => 'Comments',
+                'label' => 'dimsog.comments::lang.settings.name',
                 'description' => '',
-                'category' => 'Comments',
+                'category' => 'dimsog.comments::lang.settings.name',
                 'icon' => 'icon-comments',
                 'class' => Settings::class,
                 'order' => 500,
