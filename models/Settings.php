@@ -12,4 +12,10 @@ class Settings extends Model
     public $settingsCode = 'dimsog_comments';
 
     public $settingsFields = 'fields.yaml';
+
+
+    public static function isModerateComments(): bool
+    {
+        return static::get('moderate', false);
+    }
 }

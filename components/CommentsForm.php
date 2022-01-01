@@ -4,6 +4,7 @@ namespace Dimsog\Comments\Components;
 
 use Dimsog\Comments\Classes\ComponentBase;
 use Dimsog\Comments\Models\Comment;
+use Dimsog\Comments\Models\Settings;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Contracts\Validation\Validator as ValidatorInterface;
 use Illuminate\Validation\Rule;
@@ -34,7 +35,7 @@ class CommentsForm extends ComponentBase
         $model->user_name = post('name');
         $model->user_email = post('email');
         $model->comment = post('comment');
-        $model->active = $this->property('moderate') ? 0 : 1;
+        $model->active = Settings::isModerateComments() ? 0 : 1;
         $model->save();
 
         return [
@@ -56,11 +57,6 @@ class CommentsForm extends ComponentBase
                 'title' => 'dimsog.comments::lang.components.commentsForm.properties.email',
                 'type' => 'checkbox',
                 'default' => true
-            ],
-            'moderate' => [
-                'title' => 'dimsog.comments::lang.components.commentsForm.properties.moderate',
-                'type' => 'checkbox',
-                'default' => false
             ]
         ];
     }
