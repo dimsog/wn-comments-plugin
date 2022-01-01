@@ -19,7 +19,7 @@ class CreateCommentsTable extends Migration
             $table->string('user_name')->nullable();
             $table->string('user_email')->nullable();
             $table->text('comment')->nullable();
-            $table->unsignedTinyInteger('active')->default(0);
+            $table->unsignedTinyInteger('active')->default(0)->index();
 
             $table->foreign('group_id')->references('id')->on('dimsog_comments_groups')
                 ->onUpdate('cascade')
