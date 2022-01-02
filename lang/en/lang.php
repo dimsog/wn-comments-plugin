@@ -12,15 +12,8 @@ return [
             'properties' => [
                 'url' => 'URL',
                 'tree' => 'Tree',
+                'email' => 'Show email',
                 'dateformat' => 'Date format'
-            ]
-        ],
-        'commentsForm' => [
-            'name' => 'CommentsForm',
-            'description' => '',
-            'properties' => [
-                'url' => 'URL',
-                'email' => 'Show email'
             ],
             'success_message_moderate' => 'Your comment will be visible after approval',
             'success_message' => 'A comment has been added'

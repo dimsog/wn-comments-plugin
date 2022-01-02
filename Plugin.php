@@ -60,8 +60,7 @@ class Plugin extends PluginBase
     public function registerComponents(): array
     {
         return [
-            Comments::class => 'comments',
-            CommentsForm::class => 'commentsForm'
+            Comments::class => 'comments'
         ];
     }
 }
