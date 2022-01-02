@@ -2,7 +2,7 @@
     <div id="{{ __SELF__ }}-comments">
         {{ comments | raw }}
     </div>
-    <form class="dimsog-comment-form" data-request="{{ __SELF__ }}::onCommentStore">
+    <form class="dimsog-comment-form" id="{{ __SELF__ }}-comment-form" data-request="{{ __SELF__ }}::onCommentStore" data-request-success="document.querySelector('#{{ __SELF__ }}-comment-form').reset()">
         <input type="hidden" name="parent_id" value="">
         <div id="{{ __SELF__ }}-flash"></div>
         <div class="app-dimsog-comment-form-answer-block"></div>
