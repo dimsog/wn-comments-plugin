@@ -2,9 +2,10 @@
 
 namespace Dimsog\Comments\Components;
 
-use Dimsog\Comments\Classes\ComponentBase;
+use Cms\Classes\ComponentBase;
 use Dimsog\Comments\Classes\CommentsTreeGenerator;
 use Dimsog\Comments\Models\Comment;
+use Dimsog\Comments\Models\CommentGroup;
 use Dimsog\Comments\Models\Settings;
 use Illuminate\Contracts\Validation\Validator as ValidatorInterface;
 use Illuminate\Support\Facades\Validator;
@@ -78,6 +79,22 @@ class Comments extends ComponentBase
                 'default' => 'd.m.Y H:i'
             ]
         ];
+    }
+
+    private function getUrl(): string
+    {
+        $url = $this->property('url');
+        if (empty($url)) {
+            $url = request()->path();
+        }
+        return $url;
+    }
+
+    private function findOrCreateNewGroup(): CommentGroup
+    {
+        return CommentGroup::firstOrCreate([
+            'url' => $this->getUrl()
+        ]);
     }
 
     private function makeValidator(array $data): ValidatorInterface
