@@ -31,12 +31,7 @@ class Comments extends ComponentBase
 
     public function onRender()
     {
-        $this->page['comments'] = $this->renderPartial('@list', [
-            'comments' => $this->comments,
-            'parentId' => 0,
-            'tree' => $this->property('tree'),
-            'dateformat' => $this->property('dateformat')
-        ]);
+        $this->page['comments'] = $this->renderComments();
     }
 
     public function defineProperties(): array
@@ -58,5 +53,15 @@ class Comments extends ComponentBase
                 'default' => 'd.m.Y H:i'
             ]
         ];
+    }
+
+    private function renderComments(): string
+    {
+        return $this->renderPartial('@list', [
+            'comments' => $this->comments,
+            'parentId' => 0,
+            'tree' => $this->property('tree'),
+            'dateformat' => $this->property('dateformat')
+        ]);
     }
 }
