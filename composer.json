@@ -1,0 +1,20 @@
+{
+    "name": "dimsog/wn-comments-plugin",
+    "type": "winter-plugin",
+    "description": "Add comments to any page on your site",
+    "keywords": ["comments", "winter", "winter comments", "wintercms comments"],
+    "license": "MIT",
+    "support": {
+        "issues": "https://github.com/dimsog/wn-comments-plugin/issues",
+        "source": "https://github.com/dimsog/wn-comments-plugin"
+    },
+    "authors": [
+        {
+            "name": "Dmitry R",
+            "email": "dimsog@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.2"
+    }
+}
