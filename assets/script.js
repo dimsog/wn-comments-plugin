@@ -1,16 +1,12 @@
-(function () {
-    document
-        .querySelectorAll('.app-dimsog-comment-item-answer__link')
-        .forEach(function ($link) {
-            $link.addEventListener('click', function (e) {
-                e.preventDefault();
+$(function () {
+    $(document).on('click', '.app-dimsog-comment-item-answer__link', function (e) {
+        e.preventDefault();
 
-                var $form = document.querySelector('#app-dimsog-comment-form');
-                var $parentIdInput = $form.querySelector('input[name=parent_id]');
-                var $answerToBlock = $form.querySelector('#app-dimsog-comment-form-answer-block');
+        var $form = $('#app-dimsog-comment-form');
+        var $parentIdInput = $form.find('input[name=parent_id]');
+        var $answerToBlock = $form.find('#app-dimsog-comment-form-answer-block');
 
-                $parentIdInput.value = e.target.dataset.commentId;
-                $answerToBlock.innerHTML = '<div class="dimsog-comment-form-field dimsog-comment-form-field--reply-user"><i class="icon-reply"></i> ' + e.target.dataset.userName + '</div>';
-            });
-        });
-})();
+        $parentIdInput.val($(this).data('comment-id'));
+        $answerToBlock.html('<div class="dimsog-comment-form-field dimsog-comment-form-field--reply-user"><i class="icon-reply"></i> ' + e.target.dataset.userName + '</div>');
+    });
+});
