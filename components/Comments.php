@@ -31,9 +31,12 @@ class Comments extends ComponentBase
 
     public function onRender()
     {
-        $this->page['comments'] = $this->comments;
-        $this->page['tree'] = $this->property('tree');
-        $this->page['dateformat'] = $this->property('dateformat');
+        $this->page['comments'] = $this->renderPartial('@list', [
+            'comments' => $this->comments,
+            'parentId' => 0,
+            'tree' => $this->property('tree'),
+            'dateformat' => $this->property('dateformat')
+        ]);
     }
 
     public function defineProperties(): array
