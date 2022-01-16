@@ -1,3 +1,9 @@
+{% if comments is empty %}
+    <div class="dimsog-comments-is-empty">
+        No Comments Yet
+    </div>
+{% endif %}
+
 {% for comment in comments[parentId] %}
     {% if comment.deleted_at is empty or comments[comment.id] is not empty %}
         <div id="comment-{{ comment.id }}" class="dimsog-comment-item {% if comment.deleted_at is not empty %} dimsog-comment-item--deleted {% endif %}">
