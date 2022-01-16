@@ -13,5 +13,18 @@ Add comments to any page on your site.
 composer require dimsog/wn-comments-plugin
 ```
 
+### How to use
+```html
+title = "Demonstration"
+url = "/post/:slug"
+layout = "default"
+
+[comments]
+==
+
+{% component 'comments' %}
+
+```
+
 ### Configuration
 ![image](https://user-images.githubusercontent.com/904958/147883069-479315ab-6c16-4298-ba9c-2a821f96b910.png)
