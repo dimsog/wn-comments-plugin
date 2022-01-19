@@ -1,6 +1,6 @@
 {% if comments is empty %}
     <div class="dimsog-comments-is-empty">
-        No Comments Yet
+        {{ 'dimsog.comments::lang.components.comments.views.empty' | trans }}
     </div>
 {% endif %}
 
@@ -15,12 +15,14 @@
                 {% if comment.deleted_at is empty %}
                     {{ comment.comment | nl2br }}
                 {% else %}
-                     This comment has been deleted
+                    {{ 'dimsog.comments::lang.components.comments.views.deleted' | trans }}
                 {% endif %}
             </div>
             {% if tree and comment.active and comment.deleted_at is empty %}
             <div class="dimsog-comment-item-answer">
-                <a href="#" class="dimsog-comment-item-answer__link app-dimsog-comment-item-answer__link" data-comment-id="{{ comment.id }}" data-user-name="{{ comment.user_name }}">answer</a>
+                <a href="#" class="dimsog-comment-item-answer__link app-dimsog-comment-item-answer__link" data-comment-id="{{ comment.id }}" data-user-name="{{ comment.user_name }}">
+                    {{ 'dimsog.comments::lang.components.comments.views.answer' | trans }}
+                </a>
             </div>
             {% endif %}
 
