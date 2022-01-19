@@ -1,26 +1,30 @@
-<div class="dimsog-comments-wrapper">
-    <div id="{{ __SELF__ }}-comments">
-        {{ comments | raw }}
+<div id="{{ __SELF__ }}-comments">
+    <div class="dimsog-comments-wrapper">
+        <div id="dimsog-comments-list">
+            {{ comments | raw }}
+        </div>
+        <div class="dimsog-comments-form-wrapper">
+            <form class="dimsog-comment-form" id="{{ __SELF__ }}-comment-form" data-request="{{ __SELF__ }}::onCommentStore" data-request-success="document.querySelector('#{{ __SELF__ }}-comment-form').reset()">
+                <input type="hidden" name="parent_id" value="">
+                <div id="{{ __SELF__ }}-flash" class="app-dimsog-comment-form__flash"></div>
+                <div class="app-dimsog-comment-form-answer-block"></div>
+                <div class="dimsog-comment-form-field">
+                    <input type="text" name="name" placeholder="Your name" class="dimsog-comment-form-field__input" required>
+                </div>
+                {% if properties.email %}
+                <div class="dimsog-comment-form-field">
+                    <input type="email" name="email" placeholder="Your email" class="dimsog-comment-form-field__input" required>
+                </div>
+                {% endif %}
+                <div class="dimsog-comment-form-field">
+                    <textarea name="comment" placeholder="Text..." class="dimsog-comment-form-field__input" rows="6" required></textarea>
+                </div>
+                <div class="dimsog-comment-form-field dimsog-comment-form-field-button">
+                    <button type="submit" class="dimsog-comment-form-field__btn">
+                        Send
+                    </button>
+                </div>
+            </form>
+        </div>
     </div>
-    <form class="dimsog-comment-form" id="{{ __SELF__ }}-comment-form" data-request="{{ __SELF__ }}::onCommentStore" data-request-success="document.querySelector('#{{ __SELF__ }}-comment-form').reset()">
-        <input type="hidden" name="parent_id" value="">
-        <div id="{{ __SELF__ }}-flash" class="app-dimsog-comment-form__flash"></div>
-        <div class="app-dimsog-comment-form-answer-block"></div>
-        <div class="dimsog-comment-form-field">
-            <input type="text" name="name" placeholder="Your name" class="dimsog-comment-form-field__input" required>
-        </div>
-        {% if properties.email %}
-        <div class="dimsog-comment-form-field">
-            <input type="email" name="email" placeholder="Your email" class="dimsog-comment-form-field__input" required>
-        </div>
-        {% endif %}
-        <div class="dimsog-comment-form-field">
-            <textarea name="comment" placeholder="Text..." class="dimsog-comment-form-field__input" rows="6" required></textarea>
-        </div>
-        <div class="dimsog-comment-form-field dimsog-comment-form-field-button">
-            <button type="submit" class="dimsog-comment-form-field__btn">
-                Send
-            </button>
-        </div>
-    </form>
 </div>
