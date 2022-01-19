@@ -51,7 +51,7 @@ class Comments extends ComponentBase
             '#' . $this->alias . '-flash' => $this->renderPartial('@flash/success.htm', [
                 'message' => $this->getSuccessMessage()
             ]),
-            '#' . $this->alias . '-comments' => $this->renderComments()
+            '#' . $this->alias . '-comments-list' => $this->renderComments()
         ];
     }
 
