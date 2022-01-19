@@ -16,7 +16,16 @@ return [
                 'dateformat' => 'Date format'
             ],
             'success_message_moderate' => 'Your comment will be visible after approval',
-            'success_message' => 'A comment has been added'
+            'success_message' => 'A comment has been added',
+            'views' => [
+                'empty' => 'No Comments Yet',
+                'deleted' => 'This comment has been deleted',
+                'answer' => 'Answer',
+                'your_name' => 'Your name',
+                'your_email' => 'Your email',
+                'text' => 'Text...',
+                'send' => 'Send'
+            ]
         ]
     ],
     'settings' => [

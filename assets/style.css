@@ -43,6 +43,10 @@
     padding-top: 30px;
 }
 
+.dimsog-comments-is-empty {
+    text-align: center;
+}
+
 .dimsog-comment-item {
     padding-top: 10px;
     color: #000;

@@ -8,9 +8,26 @@ Add comments to any page on your site.
 * Support for tree comments
 * The ability to delete comments
 
+### Language support
+* English
+* Russian
+
 ### Installation
 ```bash
 composer require dimsog/wn-comments-plugin
+```
+
+### How to use
+```html
+title = "Demonstration"
+url = "/post/:slug"
+layout = "default"
+
+[comments]
+==
+
+{% component 'comments' %}
+
 ```
 
 ### Configuration
