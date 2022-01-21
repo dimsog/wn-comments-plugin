@@ -66,6 +66,14 @@ class Comments extends ComponentBase
         return $this->countActiveCommentsByUrl($this->getUrl());
     }
 
+    public function count(?string $url): int
+    {
+        if (empty($url)) {
+            return $this->countActiveCommentsFromCurrentPage();
+        }
+        return $this->countActiveCommentsByUrl($url);
+    }
+
     public function defineProperties(): array
     {
         return [
