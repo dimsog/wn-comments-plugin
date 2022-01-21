@@ -4,7 +4,7 @@
             {{ comments | raw }}
         </div>
         <div class="dimsog-comments-form-wrapper">
-            <form class="dimsog-comment-form" id="{{ __SELF__ }}-comment-form" data-request="{{ __SELF__ }}::onCommentStore" data-request-success="document.querySelector('#{{ __SELF__ }}-comment-form').reset()">
+            <form class="dimsog-comment-form" id="{{ __SELF__ }}-comment-form" data-request="{{ __SELF__ }}::onCommentStore" data-request-success="onDimsogCommentsSendSuccess(document.querySelector('#{{ __SELF__ }}-comment-form'))">
                 <input type="hidden" name="parent_id" value="">
                 <div id="{{ __SELF__ }}-flash" class="app-dimsog-comment-form__flash"></div>
                 <div class="app-dimsog-comment-form-answer-block"></div>
