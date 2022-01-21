@@ -1,6 +1,7 @@
 <?php namespace Dimsog\Comments\Models;
 
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Facades\DB;
 use Model;
 use Winter\Storm\Database\Traits\SoftDelete;
 
@@ -96,5 +97,17 @@ class Comment extends Model
             ->withTrashed()
             ->orderBy('id')
             ->get();
+    }
+
+    public static function countActiveCommentsByUrl(string $url): int
+    {
+        return DB::selectOne('
+            SELECT COUNT(*) as total
+            FROM `dimsog_comments` c
+            INNER JOIN `dimsog_comments_groups` g ON g.id = c.group_id
+            WHERE g.url = :url AND c.active = 1 AND c.deleted_at is null
+        ', [
+            ':url' => $url
+        ])->total;
     }
 }
