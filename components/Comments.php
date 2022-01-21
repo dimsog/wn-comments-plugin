@@ -24,7 +24,7 @@ class Comments extends ComponentBase
 
     public function onRun()
     {
-        $this->controller->addJs('/plugins/dimsog/comments/assets/script.js');
+        $this->controller->addJs('/plugins/dimsog/comments/assets/script.js?20220121');
         $this->controller->addCss('/plugins/dimsog/comments/assets/style.css');
     }
 
@@ -64,6 +64,14 @@ class Comments extends ComponentBase
     public function countActiveCommentsFromCurrentPage(): int
     {
         return $this->countActiveCommentsByUrl($this->getUrl());
+    }
+
+    public function count(?string $url = null): int
+    {
+        if (empty($url)) {
+            return $this->countActiveCommentsFromCurrentPage();
+        }
+        return $this->countActiveCommentsByUrl($url);
     }
 
     public function defineProperties(): array

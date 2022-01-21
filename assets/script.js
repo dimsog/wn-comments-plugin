@@ -1,3 +1,9 @@
+function onDimsogCommentsSendSuccess($form) {
+    $form.reset();
+    $form.querySelector('.app-dimsog-comment-form-answer-block').innerHTML = '';
+    $form.querySelector('input[name=parent_id]').value = '';
+}
+
 $(function () {
     $(document).on('click', '.app-dimsog-comment-item-answer__link', function (e) {
         e.preventDefault();
