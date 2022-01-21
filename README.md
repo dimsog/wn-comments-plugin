@@ -30,5 +30,16 @@ layout = "default"
 
 ```
 
+### Count the total number of comments from current page
+```html
+Count: <span id="comments-count">{{ comments.countActiveCommentsFromCurrentPage() }}</span>
+```
+
+### Count the total number of comments from another page
+```html
+Count: <span id="comments-count">{{ comments.countActiveCommentsByUrl('/') }}</span>
+```
+
+
 ### Configuration
 ![image](https://user-images.githubusercontent.com/904958/147883069-479315ab-6c16-4298-ba9c-2a821f96b910.png)
