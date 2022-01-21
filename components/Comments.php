@@ -51,8 +51,19 @@ class Comments extends ComponentBase
             '#' . $this->alias . '-flash' => $this->renderPartial('@flash/success.htm', [
                 'message' => $this->getSuccessMessage()
             ]),
-            '#' . $this->alias . '-comments-list' => $this->renderComments()
+            '#' . $this->alias . '-comments-list' => $this->renderComments(),
+            '#' . $this->alias . '-count' => $this->countActiveCommentsFromCurrentPage()
         ];
+    }
+
+    public function countActiveCommentsByUrl(string $url): int
+    {
+        return Comment::countActiveCommentsByUrl($url);
+    }
+
+    public function countActiveCommentsFromCurrentPage(): int
+    {
+        return $this->countActiveCommentsByUrl($this->getUrl());
     }
 
     public function defineProperties(): array
