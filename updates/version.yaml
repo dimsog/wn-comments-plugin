@@ -2,3 +2,14 @@
     - First version of comments
     - create_comment_groups_table.php
     - create_comments_table.php
+1.0.1:
+    - Russian language support
+    - HTML-markup improvements
+1.0.2:
+    - Template improvements for deleted comments
+1.0.3:
+    - 'New: comments.countActiveCommentsByUrl()'
+    - 'New: comments.countActiveCommentsFromCurrentPage()'
+1.0.4:
+    - 'New: comments.count()'
+    - 'Fix: correct reset the form after submitting a comment'
