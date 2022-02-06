@@ -24,8 +24,8 @@ class Comments extends ComponentBase
 
     public function onRun()
     {
-        $this->controller->addJs('/plugins/dimsog/comments/assets/script.js?20220121');
-        $this->controller->addCss('/plugins/dimsog/comments/assets/style.css');
+        $this->controller->addJs('/plugins/dimsog/comments/assets/script.js', 'Dimsog.Comments');
+        $this->controller->addCss('/plugins/dimsog/comments/assets/style.css', 'Dimsog.Comments');
     }
 
     public function onRender()
