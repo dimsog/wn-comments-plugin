@@ -13,3 +13,5 @@
 1.0.4:
     - 'New: comments.count()'
     - 'Fix: correct reset the form after submitting a comment'
+1.0.5:
+    - 'Fix: assets version history'
