@@ -17,3 +17,4 @@
     - 'Fix: assets version history'
 1.0.6:
     - 'Fix: add "guest name" if real name does not exist'
+    - 'Fix: scroll to comments form'
