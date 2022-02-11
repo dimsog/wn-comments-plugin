@@ -25,7 +25,8 @@ return [
                 'your_email' => 'Your email',
                 'text' => 'Text...',
                 'send' => 'Send'
-            ]
+            ],
+            'guest_name' => 'Guest'
         ]
     ],
     'settings' => [

@@ -16,5 +16,9 @@ $(function () {
         $form.find('.app-dimsog-comment-form__flash').html('');
         $parentIdInput.val($(this).data('comment-id'));
         $answerToBlock.html('<div class="dimsog-comment-form-field dimsog-comment-form-field--reply-user"><i class="icon-reply"></i> ' + e.target.dataset.userName + '</div>');
+
+        $('html').animate({
+            scrollTop: $form.offset().top
+        }, 500);
     });
 });

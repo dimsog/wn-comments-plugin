@@ -25,7 +25,8 @@ return [
                 'your_email' => 'Ваш email',
                 'text' => 'Текст комментария',
                 'send' => 'Отправить'
-            ]
+            ],
+            'guest_name' => 'Гость'
         ]
     ],
     'settings' => [
