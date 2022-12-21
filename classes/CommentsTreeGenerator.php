@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Dimsog\Comments\Classes;
 
 use Illuminate\Database\Eloquent\Collection;

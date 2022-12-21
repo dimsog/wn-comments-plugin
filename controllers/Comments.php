@@ -1,4 +1,8 @@
-<?php namespace Dimsog\Comments\Controllers;
+<?php
+
+declare(strict_types=1);
+
+namespace Dimsog\Comments\Controllers;
 
 use BackendMenu;
 use Backend\Classes\Controller;
