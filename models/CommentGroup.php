@@ -1,4 +1,8 @@
-<?php namespace Dimsog\Comments\Models;
+<?php
+
+declare(strict_types=1);
+
+namespace Dimsog\Comments\Models;
 
 use Model;
 

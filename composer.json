@@ -1,7 +1,7 @@
 {
     "name": "dimsog/wn-comments-plugin",
     "type": "winter-plugin",
-    "version": "1.0.6",
+    "version": "1.1.0",
     "description": "Add comments to any page on your site",
     "keywords": ["comments", "winter", "winter comments", "wintercms comments"],
     "license": "MIT",
@@ -16,6 +16,6 @@
         }
     ],
     "require": {
-        "php": ">=7.2"
+        "php": ">=8.0"
     }
 }

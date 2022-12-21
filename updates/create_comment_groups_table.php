@@ -1,4 +1,8 @@
-<?php namespace Dimsog\Comments\Updates;
+<?php
+
+declare(strict_types=1);
+
+namespace Dimsog\Comments\Updates;
 
 use Schema;
 use Winter\Storm\Database\Schema\Blueprint;

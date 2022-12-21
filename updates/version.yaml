@@ -18,3 +18,5 @@
 1.0.6:
     - 'Fix: add "guest name" if real name does not exist'
     - 'Fix: scroll to comments form'
+1.1.0:
+    - 'New: add strict-types'

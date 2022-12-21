@@ -1,4 +1,8 @@
-<?php namespace Dimsog\Comments\Models;
+<?php
+
+declare(strict_types=1);
+
+namespace Dimsog\Comments\Models;
 
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\DB;
