@@ -10,7 +10,7 @@ use Winter\Storm\Database\Updates\Migration;
 
 class CreateCommentsTable extends Migration
 {
-    public function up()
+    public function up(): void
     {
         Schema::create('dimsog_comments', static function (Blueprint $table): void {
             $table->engine = 'InnoDB';
@@ -32,7 +32,7 @@ class CreateCommentsTable extends Migration
         });
     }
 
-    public function down()
+    public function down(): void
     {
         Schema::dropIfExists('dimsog_comments');
     }

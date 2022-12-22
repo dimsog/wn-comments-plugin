@@ -10,7 +10,7 @@ use Winter\Storm\Database\Updates\Migration;
 
 class CreateCommentGroupsTable extends Migration
 {
-    public function up()
+    public function up(): void
     {
         Schema::create('dimsog_comments_groups', static function (Blueprint $table): void {
             $table->engine = 'InnoDB';
@@ -19,7 +19,7 @@ class CreateCommentGroupsTable extends Migration
         });
     }
 
-    public function down()
+    public function down(): void
     {
         Schema::dropIfExists('dimsog_comments_groups');
     }
