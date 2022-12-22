@@ -23,3 +23,5 @@
 1.1.1:
     - 'New: highlight unread comments'
     - add_is_backend_viewed_column.php
+1.1.2:
+    - 'Fix: highlight unread comments'
