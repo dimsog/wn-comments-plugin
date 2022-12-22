@@ -26,4 +26,5 @@
 1.1.2:
     - 'New: added icons for the active column'
     - 'New: access to deleted comments'
+    - 'New: restore comments'
     - 'Fix: highlight unread comments'

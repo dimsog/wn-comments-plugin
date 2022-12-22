@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace Dimsog\Comments\Controllers;
 
+use Backend\Facades\Backend;
 use BackendMenu;
 use Backend\Classes\Controller;
 use Dimsog\Comments\Models\Comment;
+use Illuminate\Http\Request;
 use Winter\Storm\Database\Builder;
 
 /**
@@ -65,5 +67,14 @@ class Comments extends Controller
         if (!empty($comment) && !$comment->is_backend_viewed) {
             $comment->markCommentAsBackendViewed();
         }
+    }
+
+    public function onRestore()
+    {
+        foreach (post('checked', []) as $commentId) {
+            $model = Comment::where('id', (int) $commentId)->withTrashed()->first();
+            $model->restore();
+        }
+        return Backend::redirect('dimsog/comments/comments');
     }
 }
