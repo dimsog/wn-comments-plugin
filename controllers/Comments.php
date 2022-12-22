@@ -39,7 +39,7 @@ class Comments extends Controller
         BackendMenu::setContext('Dimsog.Comments', 'comments', 'comments');
     }
 
-    public function listExtendQuery($query)
+    public function listExtendQuery(Builder $query): void
     {
         $query->withTrashed();
     }
