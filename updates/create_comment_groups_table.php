@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Dimsog\Comments\Updates;
 
-use Schema;
+use Winter\Storm\Support\Facades\Schema;
 use Winter\Storm\Database\Schema\Blueprint;
 use Winter\Storm\Database\Updates\Migration;
 
