@@ -12,7 +12,7 @@ class CreateCommentGroupsTable extends Migration
 {
     public function up()
     {
-        Schema::create('dimsog_comments_groups', function (Blueprint $table) {
+        Schema::create('dimsog_comments_groups', static function (Blueprint $table): void {
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('url')->unique();

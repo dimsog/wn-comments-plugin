@@ -12,7 +12,7 @@ class CreateCommentsTable extends Migration
 {
     public function up()
     {
-        Schema::create('dimsog_comments', function (Blueprint $table) {
+        Schema::create('dimsog_comments', static function (Blueprint $table): void {
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->timestamps();
