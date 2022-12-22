@@ -47,7 +47,8 @@ return [
             'fields' => [
                 'user_name' => 'Имя пользователя',
                 'user_email' => 'Email',
-                'comment' => 'Текст комментария'
+                'comment' => 'Текст комментария',
+                'active' => 'Опубликовано'
             ]
         ]
     ]

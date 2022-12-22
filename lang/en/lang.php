@@ -47,7 +47,8 @@ return [
             'fields' => [
                 'user_name' => 'User name',
                 'user_email' => 'User email',
-                'comment' => 'Comment'
+                'comment' => 'Comment',
+                'active' => 'Active'
             ]
         ]
     ]
