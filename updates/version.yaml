@@ -24,4 +24,5 @@
     - 'New: highlight unread comments'
     - add_is_backend_viewed_column.php
 1.1.2:
+    - 'New: added icons for the active column'
     - 'Fix: highlight unread comments'
