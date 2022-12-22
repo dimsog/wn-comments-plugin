@@ -7,6 +7,7 @@ namespace Dimsog\Comments\Controllers;
 use BackendMenu;
 use Backend\Classes\Controller;
 use Dimsog\Comments\Models\Comment;
+use Winter\Storm\Database\Builder;
 
 /**
  * Comments Back-end Controller
@@ -39,6 +40,11 @@ class Comments extends Controller
     }
 
     public function listExtendQuery($query)
+    {
+        $query->withTrashed();
+    }
+
+    public function formExtendQuery(Builder $query): void
     {
         $query->withTrashed();
     }
