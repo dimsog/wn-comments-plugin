@@ -8,12 +8,10 @@ use Illuminate\Database\Eloquent\Collection;
 
 class CommentsTreeGenerator
 {
-    private $comments;
-
-
-    public function __construct(Collection $comments)
+    public function __construct(
+        private Collection $comments
+    )
     {
-        $this->comments = $comments;
     }
 
     public function generate(): array
