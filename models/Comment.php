@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace Dimsog\Comments\Models;
 
+use Model;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\DB;
-use Model;
 use Winter\Storm\Database\Traits\SoftDelete;
+use Winter\Storm\Database\Traits\Validation;
 
 /**
  * Comment Model
@@ -22,7 +23,7 @@ use Winter\Storm\Database\Traits\SoftDelete;
  */
 class Comment extends Model
 {
-    use \Winter\Storm\Database\Traits\Validation;
+    use Validation;
     use SoftDelete;
 
     /**

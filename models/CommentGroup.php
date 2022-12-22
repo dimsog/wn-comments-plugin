@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Dimsog\Comments\Models;
 
 use Model;
+use Winter\Storm\Database\Traits\Validation;
 
 /**
  * CommentGroup Model
@@ -13,7 +14,7 @@ use Model;
  */
 class CommentGroup extends Model
 {
-    use \Winter\Storm\Database\Traits\Validation;
+    use Validation;
 
     /**
      * @var string The database table used by the model.
