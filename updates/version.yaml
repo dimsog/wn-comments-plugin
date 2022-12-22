@@ -27,4 +27,5 @@
     - 'New: added icons for the active column'
     - 'New: access to deleted comments'
     - 'New: restore comments'
+    - 'New: highlight deleted comments'
     - 'Fix: highlight unread comments'

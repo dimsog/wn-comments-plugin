@@ -51,12 +51,16 @@ class Comments extends Controller
         $query->withTrashed();
     }
 
-    public function listInjectRowClass(Comment $model): ?string
+    public function listInjectRowClass(Comment $model): string
     {
+        $classes = [];
         if (!$model->is_backend_viewed) {
-            return 'dimsog-backend-comment-unviewed';
+            $classes[] = 'dimsog-backend-comment-unviewed';
         }
-        return null;
+        if (!empty($model->deleted_at)) {
+            $classes[] = 'dimsog-backend-comment-deleted';
+        }
+        return implode(' ', $classes);
     }
 
     public function update($recordId = null, $context = null): void
