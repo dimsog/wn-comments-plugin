@@ -20,6 +20,7 @@ use Winter\Storm\Database\Traits\Validation;
  * @property string $user_email
  * @property string $comment
  * @property int $active
+ * @property bool $is_backend_viewed
  */
 class Comment extends Model
 {
@@ -49,7 +50,9 @@ class Comment extends Model
     /**
      * @var array Attributes to be cast to native types
      */
-    protected $casts = [];
+    protected $casts = [
+        'is_backend_viewed' => 'boolean'
+    ];
 
     /**
      * @var array Attributes to be cast to JSON
@@ -114,5 +117,11 @@ class Comment extends Model
         ', [
             ':url' => $url
         ])->total;
+    }
+
+    public function markCommentAsBackendViewed(): void
+    {
+        $this->is_backend_viewed = true;
+        $this->save();
     }
 }

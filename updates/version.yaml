@@ -20,3 +20,6 @@
     - 'Fix: scroll to comments form'
 1.1.0:
     - 'New: add strict-types'
+1.1.1:
+    - 'New: highlight unread comments'
+    - add_is_backend_viewed_column.php
