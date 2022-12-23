@@ -41,14 +41,14 @@ return [
                 'user_name' => 'Имя',
                 'user_email' => 'Email',
                 'url' => 'URL',
-                'active' => 'Опубликовано',
+                'active' => 'Одобрен',
                 'deleted' => 'Удалено'
             ],
             'fields' => [
                 'user_name' => 'Имя пользователя',
                 'user_email' => 'Email',
                 'comment' => 'Текст комментария',
-                'active' => 'Опубликовано'
+                'active' => 'Комментарий одобрен'
             ]
         ]
     ]

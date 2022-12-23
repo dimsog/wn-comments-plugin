@@ -41,14 +41,14 @@ return [
                 'user_name' => 'User name',
                 'user_email' => 'User email',
                 'url' => 'URL',
-                'active' => 'Active',
+                'active' => 'Approved',
                 'deleted' => 'Deleted'
             ],
             'fields' => [
                 'user_name' => 'User name',
                 'user_email' => 'User email',
                 'comment' => 'Comment',
-                'active' => 'Active'
+                'active' => 'Approved'
             ]
         ]
     ]
