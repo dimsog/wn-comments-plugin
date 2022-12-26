@@ -38,6 +38,21 @@ layout = "default"
 
 ```
 
+### Show comments for specific page
+```html
+title = "Demonstration"
+url = "/post/:slug"
+layout = "default"
+
+[comments]
+url = "{{ :slug }}"
+
+==
+
+{% component 'comments' %}
+```
+
+
 ### Count the total number of comments from current page
 ```html
 Count: <span id="comments-count">{{ comments.count() }}</span>
