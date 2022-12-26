@@ -161,7 +161,7 @@ class Comments extends ComponentBase
     private function renderComments(): string
     {
         $group = $this->findOrCreateNewGroup();
-        $comments = Comment::findCommentsFromGroupId($group->id, Settings::isModerateComments());
+        $comments = Comment::findCommentsFromGroupId($group->id);
 
         return $this->renderPartial('@list', [
             'comments' => (new CommentsTreeGenerator($comments))->generate(),
