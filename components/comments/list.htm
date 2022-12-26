@@ -5,21 +5,15 @@
 {% endif %}
 
 {% for comment in comments[parentId] %}
-    <div id="comment-{{ comment.id }}" class="dimsog-comment-item {% if comment.deleted_at is not empty %} dimsog-comment-item--deleted {% endif %}">
-        {% if comment.deleted_at is empty %}
+    <div id="comment-{{ comment.id }}" class="dimsog-comment-item">
         <div class="dimsog-comment-item-header">
             <div class="dimsog-comment-item-header__user">{{ comment.user_name ?? 'dimsog.comments::lang.components.comments.guest_name'  | trans }}</div>
             <div class="dimsog-comment-item-header__date">{{ comment.created_at | date(dateformat) }}</div>
         </div>
-        {% endif %}
         <div class="dimsog-comment-item__text">
-            {% if comment.deleted_at is empty %}
-                {{ comment.comment | nl2br }}
-            {% else %}
-                {{ 'dimsog.comments::lang.components.comments.views.deleted' | trans }}
-            {% endif %}
+            {{ comment.comment | nl2br }}
         </div>
-        {% if tree and comment.active and comment.deleted_at is empty %}
+        {% if tree and comment.active %}
         <div class="dimsog-comment-item-answer">
             <a href="#" class="dimsog-comment-item-answer__link app-dimsog-comment-item-answer__link" data-comment-id="{{ comment.id }}" data-user-name="{{ comment.user_name ?? 'dimsog.comments::lang.components.comments.guest_name'  | trans }}">
                 {{ 'dimsog.comments::lang.components.comments.views.answer' | trans }}

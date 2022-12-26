@@ -52,10 +52,6 @@
     color: #000;
 }
 
-.dimsog-comment-item--deleted > .dimsog-comment-item__text {
-    color: #666;
-}
-
 .dimsog-comment-item:first-child {
     padding-top: 0;
 }

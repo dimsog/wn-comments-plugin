@@ -18,6 +18,6 @@ class Settings extends Model
 
     public static function isModerateComments(): bool
     {
-        return static::get('moderate', false);
+        return static::get('moderate', "0") === "1";
     }
 }

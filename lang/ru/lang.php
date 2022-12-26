@@ -19,7 +19,6 @@ return [
             'success_message' => 'Комментарий добавлен',
             'views' => [
                 'empty' => 'Нет комментариев',
-                'deleted' => 'Комментарий удален',
                 'answer' => 'Ответить',
                 'your_name' => 'Ваше имя',
                 'your_email' => 'Ваш email',
@@ -35,19 +34,26 @@ return [
     ],
     'models' => [
         'comment' => [
+            'toolbar' => [
+                'delete' => 'Удалить выбранные',
+                'restore' => 'Восстановить выбранные',
+                'delete_confirm' => 'Вы действительно хотите удалить выбранные комментарии?',
+                'restore_confirm' => 'Вы действительно хотите восстановить выбранные комментарии?'
+            ],
             'columns' => [
                 'id' => 'ID',
                 'created_at' => 'Дата создания',
                 'user_name' => 'Имя',
                 'user_email' => 'Email',
                 'url' => 'URL',
-                'active' => 'Опубликовано',
+                'active' => 'Одобрен',
                 'deleted' => 'Удалено'
             ],
             'fields' => [
                 'user_name' => 'Имя пользователя',
                 'user_email' => 'Email',
-                'comment' => 'Текст комментария'
+                'comment' => 'Текст комментария',
+                'active' => 'Комментарий одобрен'
             ]
         ]
     ]

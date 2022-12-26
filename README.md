@@ -1,5 +1,6 @@
 Add comments to any page on your site.
-![image](https://user-images.githubusercontent.com/904958/147882849-1608a077-07a9-4849-9fdc-8617c0952fe8.png)
+![image](https://user-images.githubusercontent.com/904958/209522089-da572948-8d5f-4e01-ab7d-604691f9a85d.png)
+![image](https://user-images.githubusercontent.com/904958/209521953-3ae2ab52-b63d-4d80-b33d-7a0a63bf61ed.png)
 
 ### Features
 * Absolutely free (MIT)
@@ -30,23 +31,35 @@ url = "/post/:slug"
 layout = "default"
 
 [comments]
+
 ==
 
 {% component 'comments' %}
 
 ```
 
+### Show comments for specific page
+```html
+title = "Demonstration"
+url = "/post/:slug"
+layout = "default"
+
+[comments]
+url = "{{ :slug }}"
+
+==
+
+{% component 'comments' %}
+```
+
+
 ### Count the total number of comments from current page
 ```html
-Count: <span id="comments-count">{{ comments.countActiveCommentsFromCurrentPage() }}</span>
-or
 Count: <span id="comments-count">{{ comments.count() }}</span>
 ```
 
 ### Count the total number of comments from another page
 ```html
-Count: <span id="comments-count">{{ comments.countActiveCommentsByUrl('/') }}</span>
-or
 Count: <span id="comments-count">{{ comments.count('/') }}</span>
 ```
 

@@ -3,6 +3,9 @@
 # ===================================
 
 fields:
+    active:
+        label: dimsog.comments::lang.models.comment.fields.active
+        type: switch
     user_name:
         label: dimsog.comments::lang.models.comment.fields.user_name
         span: auto

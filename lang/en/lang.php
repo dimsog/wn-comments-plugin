@@ -19,7 +19,6 @@ return [
             'success_message' => 'A comment has been added',
             'views' => [
                 'empty' => 'No Comments Yet',
-                'deleted' => 'This comment has been deleted',
                 'answer' => 'Answer',
                 'your_name' => 'Your name',
                 'your_email' => 'Your email',
@@ -35,19 +34,26 @@ return [
     ],
     'models' => [
         'comment' => [
+            'toolbar' => [
+                'delete' => 'Delete selected',
+                'restore' => 'Restore selected',
+                'delete_confirm' => 'Are you sure you want to delete the selected comments?',
+                'restore_confirm' => 'Are you sure you want to restore the selected comments?'
+            ],
             'columns' => [
                 'id' => 'ID',
                 'created_at' => 'Created At',
                 'user_name' => 'User name',
                 'user_email' => 'User email',
                 'url' => 'URL',
-                'active' => 'Active',
+                'active' => 'Approved',
                 'deleted' => 'Deleted'
             ],
             'fields' => [
                 'user_name' => 'User name',
                 'user_email' => 'User email',
-                'comment' => 'Comment'
+                'comment' => 'Comment',
+                'active' => 'Approved'
             ]
         ]
     ]

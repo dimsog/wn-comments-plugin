@@ -4,12 +4,26 @@
         disabled="disabled"
         onclick="$(this).data('request-data', { checked: $('.control-list').listWidget('getChecked') })"
         data-request="onDelete"
-        data-request-confirm="Are you sure you want to delete the selected Comments?"
+        data-request-confirm="<?= e(trans('dimsog.comments::lang.models.comment.toolbar.delete_confirm')) ?>"
         data-trigger-action="enable"
         data-trigger=".control-list input[type=checkbox]"
         data-trigger-condition="checked"
         data-request-success="$(this).prop('disabled', 'disabled')"
         data-stripe-load-indicator>
-        Delete selected
+        <?= e(trans('dimsog.comments::lang.models.comment.toolbar.delete')) ?>
+    </button>
+
+    <button
+            class="btn btn-danger oc-icon-trash-o"
+            disabled="disabled"
+            onclick="$(this).data('request-data', { checked: $('.control-list').listWidget('getChecked') })"
+            data-request="onRestore"
+            data-request-confirm="<?= e(trans('dimsog.comments::lang.models.comment.toolbar.restore_confirm')) ?>"
+            data-trigger-action="enable"
+            data-trigger=".control-list input[type=checkbox]"
+            data-trigger-condition="checked"
+            data-request-success="$(this).prop('disabled', 'disabled')"
+            data-stripe-load-indicator>
+        <?= e(trans('dimsog.comments::lang.models.comment.toolbar.restore')) ?>
     </button>
 </div>

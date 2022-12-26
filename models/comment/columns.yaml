@@ -17,8 +17,10 @@ columns:
         select: url
         label: dimsog.comments::lang.models.comment.columns.url
     active:
-        type: switch
+        type: partial
+        path: ~/plugins/dimsog/comments/models/comment/partials/_active.htm
         label: dimsog.comments::lang.models.comment.columns.active
     deleted_at:
-        type: switch
+        type: partial
+        path: ~/plugins/dimsog/comments/models/comment/partials/_deleted_at.htm
         label: dimsog.comments::lang.models.comment.columns.deleted

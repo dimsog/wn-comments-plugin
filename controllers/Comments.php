@@ -4,9 +4,12 @@ declare(strict_types=1);
 
 namespace Dimsog\Comments\Controllers;
 
+use Backend\Facades\Backend;
 use BackendMenu;
 use Backend\Classes\Controller;
 use Dimsog\Comments\Models\Comment;
+use Illuminate\Http\Request;
+use Winter\Storm\Database\Builder;
 
 /**
  * Comments Back-end Controller
@@ -38,17 +41,29 @@ class Comments extends Controller
         BackendMenu::setContext('Dimsog.Comments', 'comments', 'comments');
     }
 
-    public function listExtendQuery($query)
+    public function listExtendQuery(Builder $query): void
     {
         $query->withTrashed();
     }
 
-    public function listInjectRowClass(Comment $model): ?string
+    public function formExtendQuery(Builder $query): void
     {
+        $query->withTrashed();
+    }
+
+    public function listInjectRowClass(Comment $model): string
+    {
+        $classes = [];
         if (!$model->is_backend_viewed) {
-            return 'dimsog-backend-comment-unviewed';
+            $classes[] = 'dimsog-backend-comment-unviewed';
         }
-        return null;
+        if ($model->active) {
+            $classes[] = 'dimsog-backend-comment-approved';
+        }
+        if (!empty($model->deleted_at)) {
+            $classes[] = 'dimsog-backend-comment-deleted';
+        }
+        return implode(' ', $classes);
     }
 
     public function update($recordId = null, $context = null): void
@@ -59,5 +74,14 @@ class Comments extends Controller
         if (!empty($comment) && !$comment->is_backend_viewed) {
             $comment->markCommentAsBackendViewed();
         }
+    }
+
+    public function onRestore()
+    {
+        foreach (post('checked', []) as $commentId) {
+            $model = Comment::where('id', (int) $commentId)->withTrashed()->first();
+            $model->restore();
+        }
+        return Backend::redirect('dimsog/comments/comments');
     }
 }
