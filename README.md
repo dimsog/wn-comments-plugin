@@ -38,15 +38,11 @@ layout = "default"
 
 ### Count the total number of comments from current page
 ```html
-Count: <span id="comments-count">{{ comments.countActiveCommentsFromCurrentPage() }}</span>
-or
 Count: <span id="comments-count">{{ comments.count() }}</span>
 ```
 
 ### Count the total number of comments from another page
 ```html
-Count: <span id="comments-count">{{ comments.countActiveCommentsByUrl('/') }}</span>
-or
 Count: <span id="comments-count">{{ comments.count('/') }}</span>
 ```
 
