@@ -1,5 +1,6 @@
 Add comments to any page on your site.
 ![image](https://user-images.githubusercontent.com/904958/147882849-1608a077-07a9-4849-9fdc-8617c0952fe8.png)
+![image](https://user-images.githubusercontent.com/904958/209520424-863608aa-8dad-4ab9-8fa4-e08892d81263.png)
 
 ### Features
 * Absolutely free (MIT)
