@@ -34,6 +34,12 @@ return [
     ],
     'models' => [
         'comment' => [
+            'toolbar' => [
+                'delete' => 'Delete selected',
+                'restore' => 'Restore selected',
+                'delete_confirm' => 'Are you sure you want to delete the selected comments?',
+                'restore_confirm' => 'Are you sure you want to restore the selected comments?'
+            ],
             'columns' => [
                 'id' => 'ID',
                 'created_at' => 'Created At',
