@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Dimsog\Comments;
 
 use Backend;
+use Dimsog\Comments\Classes\UnreadCommentsCalculator;
 use Dimsog\Comments\Components\CommentsForm;
 use Dimsog\Comments\Components\Comments;
 use Dimsog\Comments\Models\Settings;
@@ -31,6 +32,7 @@ class Plugin extends PluginBase
                 'icon'        => 'icon-comments',
                 'permissions' => ['*'],
                 'order'       => 500,
+                'counter'     => [UnreadCommentsCalculator::class, 'calculate'],
                 'sideMenu' => [
                     'comments' => [
                         'label'       => 'dimsog.comments::lang.plugin.name',
