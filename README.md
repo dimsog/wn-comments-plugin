@@ -31,6 +31,7 @@ url = "/post/:slug"
 layout = "default"
 
 [comments]
+
 ==
 
 {% component 'comments' %}
