@@ -57,6 +57,9 @@ class Comments extends Controller
         if (!$model->is_backend_viewed) {
             $classes[] = 'dimsog-backend-comment-unviewed';
         }
+        if ($model->active) {
+            $classes[] = 'dimsog-backend-comment-approved';
+        }
         if (!empty($model->deleted_at)) {
             $classes[] = 'dimsog-backend-comment-deleted';
         }
