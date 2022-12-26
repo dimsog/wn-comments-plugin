@@ -19,7 +19,6 @@ return [
             'success_message' => 'A comment has been added',
             'views' => [
                 'empty' => 'No Comments Yet',
-                'deleted' => 'This comment has been deleted',
                 'answer' => 'Answer',
                 'your_name' => 'Your name',
                 'your_email' => 'Your email',

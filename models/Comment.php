@@ -99,7 +99,6 @@ class Comment extends Model
     {
         return static::where('group_id', $groupId)
             ->where('active', 1)
-            ->withTrashed()
             ->orderBy('id')
             ->get();
     }

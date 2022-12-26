@@ -19,7 +19,6 @@ return [
             'success_message' => 'Комментарий добавлен',
             'views' => [
                 'empty' => 'Нет комментариев',
-                'deleted' => 'Комментарий удален',
                 'answer' => 'Ответить',
                 'your_name' => 'Ваше имя',
                 'your_email' => 'Ваш email',
