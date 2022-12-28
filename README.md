@@ -8,6 +8,7 @@ Add comments to any page on your site.
 * Show/hide the email field
 * Support for tree comments
 * The ability to delete comments
+* Email notifications
 
 ### Language support
 * English
