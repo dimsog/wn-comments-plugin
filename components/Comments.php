@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Dimsog\Comments\Components;
 
+use Backend\Facades\Backend;
 use Cms\Classes\ComponentBase;
 use Dimsog\Comments\Classes\CommentsTreeGenerator;
 use Dimsog\Comments\Models\Comment;
@@ -13,6 +14,7 @@ use Illuminate\Contracts\Validation\Validator as ValidatorInterface;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Winter\Storm\Exception\AjaxException;
+use Illuminate\Support\Facades\Mail;
 
 class Comments extends ComponentBase
 {
@@ -47,7 +49,12 @@ class Comments extends ComponentBase
         $model->user_email = post('email');
         $model->comment = post('comment');
         $model->active = Settings::isModerateComments() ? 0 : 1;
-        $model->save();
+        if ($model->save() && Settings::isEmailNotification() && !empty(Settings::getAdminEmail())) {
+            Mail::sendTo(Settings::getAdminEmail(), 'dimsog.comments::mail.new_comment', [
+                'model' => $model,
+                'approve_url' => Backend::url('dimsog/comments/comments/update/' . $model->id)
+            ]);
+        }
 
         return [
             '#' . $this->alias . '-flash' => $this->renderPartial('@flash/success.htm', [

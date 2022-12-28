@@ -29,3 +29,5 @@
     - 'New: restore comments'
     - 'New: highlight deleted comments'
     - 'Fix: highlight unread comments'
+1.1.3:
+    - 'New: email notifications'

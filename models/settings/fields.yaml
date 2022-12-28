@@ -3,3 +3,9 @@ fields:
         label: dimsog.comments::lang.settings.moderate
         type: switch
         default: false
+    emailNotification:
+        label: dimsog.comments::lang.settings.emailNotification
+        type: switch
+        default: false
+    adminEmail:
+        label: dimsog.comments::lang.settings.adminEmail

@@ -6,7 +6,6 @@ namespace Dimsog\Comments;
 
 use Backend;
 use Dimsog\Comments\Classes\UnreadCommentsCalculator;
-use Dimsog\Comments\Components\CommentsForm;
 use Dimsog\Comments\Components\Comments;
 use Dimsog\Comments\Models\Settings;
 use System\Classes\PluginBase;
@@ -64,6 +63,13 @@ class Plugin extends PluginBase
     {
         return [
             Comments::class => 'comments'
+        ];
+    }
+
+    public function registerMailTemplates(): array
+    {
+        return [
+            'dimsog.comments::mail.new_comment'
         ];
     }
 }
