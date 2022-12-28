@@ -31,3 +31,5 @@
     - 'Fix: highlight unread comments'
 1.1.3:
     - 'New: email notifications'
+1.1.4:
+    - 'Fix: minor code improvements'
