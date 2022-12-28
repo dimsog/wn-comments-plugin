@@ -66,4 +66,11 @@ class Plugin extends PluginBase
             Comments::class => 'comments'
         ];
     }
+
+    public function registerMailTemplates(): array
+    {
+        return [
+            'dimsog.comments::mail.new_comment'
+        ];
+    }
 }

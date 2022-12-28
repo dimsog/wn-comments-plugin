@@ -20,4 +20,14 @@ class Settings extends Model
     {
         return static::get('moderate', "0") === "1";
     }
+
+    public static function isEmailNotification(): bool
+    {
+        return static::get('emailNotification') === '1';
+    }
+
+    public static function getAdminEmail(): ?string
+    {
+        return static::get('adminEmail');
+    }
 }

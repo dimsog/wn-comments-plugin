@@ -30,7 +30,9 @@ return [
     ],
     'settings' => [
         'name' => 'Comments',
-        'moderate' => 'Moderate comments'
+        'moderate' => 'Moderate comments',
+        'emailNotification' => 'Email notification',
+        'adminEmail' => 'Admin email'
     ],
     'models' => [
         'comment' => [

@@ -1,0 +1,21 @@
+subject = "New comment received"
+description = "New comment received"
+layout="system"
+
+==
+
+## Comment details:
+
+- Date: {{ model.created_at }}
+- User: {{ model.user_name }}
+{% if model.user_email is not empty %}
+- Email: {{ model.user_email }}
+{% endif %}}
+- Comment: {{ model.comment }}
+
+
+{% if model.active == 0 %}
+<a href="{{ approve_url }}" target="_blank">
+    Approve comment
+</a>
+{% endif %}
