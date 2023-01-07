@@ -48,7 +48,7 @@ class Comments extends ComponentBase
         $model->group_id = $group->id;
         $model->user_name = post('name');
         $model->user_email = post('email');
-        if ($this->onlyForAuthUsers() && $this->checkAuthPlugin()) {
+        if ($this->onlyForAuthUsers() && $this->checkAuthClassExists()) {
             $model->user_id = Auth::id();
         }
         $model->comment = post('comment');
@@ -157,26 +157,16 @@ class Comments extends ComponentBase
     private function validateOrFail(): void
     {
         if ($this->onlyForAuthUsers()) {
-            if (!$this->checkAuthPlugin()) {
-                throw new AjaxException([
-                    '#' . $this->alias . '-flash' => $this->renderPartial('@flash/errors.htm', [
-                        'errors' => [trans('dimsog.comments::lang.components.comments.validator.please_install_user_plugin')]
-                    ])
-                ]);
+            if (!$this->checkAuthClassExists()) {
+                $this->throwAjaxException(trans('dimsog.comments::lang.components.comments.validator.please_install_user_plugin'));
             }
-            throw new AjaxException([
-                '#' . $this->alias . '-flash' => $this->renderPartial('@flash/errors.htm', [
-                    'errors' => [trans('dimsog.comments::lang.components.comments.validator.auth')]
-                ])
-            ]);
+            if (!Auth::check()) {
+                $this->throwAjaxException(trans('dimsog.comments::lang.components.comments.validator.auth'));
+            }
         }
         $validator = $this->makeValidator(post());
         if ($validator->fails()) {
-            throw new AjaxException([
-                '#' . $this->alias . '-flash' => $this->renderPartial('@flash/errors.htm', [
-                    'errors' => $validator->errors()->all()
-                ])
-            ]);
+            $this->throwAjaxExceptionFromErrorsArray($validator->errors()->all());
         }
     }
 
@@ -206,8 +196,22 @@ class Comments extends ComponentBase
         return $this->property('auth') == true;
     }
 
-    private function checkAuthPlugin(): bool
+    private function checkAuthClassExists(): bool
     {
         return class_exists(Auth::class);
+    }
+
+    private function throwAjaxException(string $message): void
+    {
+        $this->throwAjaxExceptionFromErrorsArray([$message]);
+    }
+
+    private function throwAjaxExceptionFromErrorsArray(array $errors): void
+    {
+        throw new AjaxException([
+            '#' . $this->alias . '-flash' => $this->renderPartial('@flash/errors.htm', [
+                'errors' => $errors
+            ])
+        ]);
     }
 }
