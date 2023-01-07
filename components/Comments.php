@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Dimsog\Comments\Components;
 
+use Auth;
 use Backend\Facades\Backend;
 use Cms\Classes\ComponentBase;
 use Dimsog\Comments\Classes\CommentsTreeGenerator;
@@ -47,6 +48,9 @@ class Comments extends ComponentBase
         $model->group_id = $group->id;
         $model->user_name = post('name');
         $model->user_email = post('email');
+        if ($this->onlyForAuthUsers() && $this->checkAuthPlugin()) {
+            $model->user_id = Auth::id();
+        }
         $model->comment = post('comment');
         $model->active = Settings::isModerateComments() ? 0 : 1;
         if ($model->save() && Settings::isEmailNotification() && !empty(Settings::getAdminEmail())) {
@@ -105,6 +109,11 @@ class Comments extends ComponentBase
                 'title' => 'dimsog.comments::lang.components.comments.properties.dateformat',
                 'type' => 'string',
                 'default' => 'd.m.Y H:i'
+            ],
+            'auth' => [
+                'title' => 'dimsog.comments.lang.components.comments.properties.auth',
+                'type' => 'boolean',
+                'default' => false
             ]
         ];
     }
@@ -147,6 +156,20 @@ class Comments extends ComponentBase
 
     private function validateOrFail(): void
     {
+        if ($this->onlyForAuthUsers()) {
+            if (!$this->checkAuthPlugin()) {
+                throw new AjaxException([
+                    '#' . $this->alias . '-flash' => $this->renderPartial('@flash/errors.htm', [
+                        'errors' => [trans('dimsog.comments::lang.components.comments.validator.please_install_user_plugin')]
+                    ])
+                ]);
+            }
+            throw new AjaxException([
+                '#' . $this->alias . '-flash' => $this->renderPartial('@flash/errors.htm', [
+                    'errors' => [trans('dimsog.comments::lang.components.comments.validator.auth')]
+                ])
+            ]);
+        }
         $validator = $this->makeValidator(post());
         if ($validator->fails()) {
             throw new AjaxException([
@@ -176,5 +199,15 @@ class Comments extends ComponentBase
             'tree' => $this->property('tree'),
             'dateformat' => $this->property('dateformat')
         ]);
+    }
+
+    private function onlyForAuthUsers(): bool
+    {
+        return $this->property('auth') == true;
+    }
+
+    private function checkAuthPlugin(): bool
+    {
+        return class_exists(Auth::class);
     }
 }

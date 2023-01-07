@@ -4,6 +4,7 @@ Add comments to any page on your site.
 
 ### Features
 * Absolutely free (MIT)
+* Support front-end users (see https://github.com/wintercms/wn-user-plugin)
 * Moderation
 * Show/hide the email field
 * Support for tree comments

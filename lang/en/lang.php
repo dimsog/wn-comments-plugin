@@ -13,7 +13,8 @@ return [
                 'url' => 'URL',
                 'tree' => 'Tree',
                 'email' => 'Show email',
-                'dateformat' => 'Date format'
+                'dateformat' => 'Date format',
+                'auth' => 'Only for logged in users'
             ],
             'success_message_moderate' => 'Your comment will be visible after approval',
             'success_message' => 'A comment has been added',
@@ -25,7 +26,11 @@ return [
                 'text' => 'Text...',
                 'send' => 'Send'
             ],
-            'guest_name' => 'Guest'
+            'guest_name' => 'Guest',
+            'validator' => [
+                'auth' => 'Log in to leave a comment',
+                'please_install_user_plugin' => 'Please install an user plugin (for example: winter/wn-user-plugin)'
+            ]
         ]
     ],
     'settings' => [
