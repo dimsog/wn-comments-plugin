@@ -29,7 +29,7 @@ return [
             'guest_name' => 'Guest',
             'validator' => [
                 'auth' => 'Log in to leave a comment',
-                'please_install_user_plugin' => 'Please install an user plugin (for example: winter/wn-user-plugin)'
+                'please_install_user_plugin' => 'Auth class not found. Please install an user plugin (for example: winter/wn-user-plugin)'
             ]
         ]
     ],

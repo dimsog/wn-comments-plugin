@@ -29,7 +29,7 @@ return [
             'guest_name' => 'Гость',
             'validator' => [
                 'auth' => 'Войдите, чтобы оставить комментарий',
-                'please_install_user_plugin' => 'Пожалуйста установите плагин пользователей (например: winter/wn-user-plugin)'
+                'please_install_user_plugin' => 'Класс Auth не найден. Пожалуйста установите плагин пользователей (например: winter/wn-user-plugin)'
             ]
         ]
     ],
