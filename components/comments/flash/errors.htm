@@ -1,4 +1,10 @@
 <div class="dimsog-comments-form-validation-errors">
+    {% if message is not empty %}
+        <ul>
+            <li>{{ message }}</li>
+        </ul>
+    {% endif %}
+
     {% if errors is not empty %}
     <ul>
         {% for error in errors %}
