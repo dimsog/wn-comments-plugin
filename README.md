@@ -4,7 +4,7 @@ Add comments to any page on your site.
 
 ### Features
 * Absolutely free (MIT)
-* Support front-end users (see https://github.com/wintercms/wn-user-plugin)
+* Support front-end users (see [winter/wn-user-plugin](https://github.com/wintercms/wn-user-plugin))
 * Moderation
 * Show/hide the email field
 * Support for tree comments
@@ -34,6 +34,25 @@ layout = "default"
 
 [comments]
 
+==
+
+{% component 'comments' %}
+
+```
+
+### Show form only for authenticated users
+<strong>Important!</strong>
+You must install a frontend-end user plugin! For example [winter/wn-user-plugin](https://github.com/wintercms/wn-user-plugin)
+```bash
+composer require wintercms/wn-user-plugin
+```
+```html
+title = "Demonstration"
+url = "/post/:slug"
+layout = "default"
+
+[comments]
+auth = true
 ==
 
 {% component 'comments' %}
