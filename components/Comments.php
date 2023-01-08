@@ -48,7 +48,7 @@ class Comments extends ComponentBase
         $model->group_id = $group->id;
         $model->user_name = post('name');
         $model->user_email = post('email');
-        if ($this->onlyForAuthUsers() && $this->checkAuthClassExists()) {
+        if ($this->onlyForAuthUsers()) {
             $model->user_id = Auth::id();
         }
         $model->comment = post('comment');
