@@ -1,3 +1,4 @@
+{% if message is not empty or errors is not empty %}
 <div class="dimsog-comments-form-validation-errors">
     {% if message is not empty %}
         <ul>
@@ -15,3 +16,4 @@
     </ul>
     {% endif %}
 </div>
+{% endif %}
