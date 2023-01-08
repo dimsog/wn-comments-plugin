@@ -2,7 +2,7 @@
 <div class="dimsog-comments-form-validation-errors">
     {% if message is not empty %}
         <ul>
-            <li>{{ message }}</li>
+            <li>{{ message | trans }}</li>
         </ul>
     {% endif %}
 
