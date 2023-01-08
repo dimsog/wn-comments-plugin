@@ -35,4 +35,31 @@ class UserProvider
         }
         return !Auth::check();
     }
+
+    public function getUserName(): ?string
+    {
+        if (!$this->checkUserPluginIsExists()) {
+            return null;
+        }
+        $user = Auth::user();
+        if (!empty($user->name)) {
+            return $user->name;
+        }
+        if (!empty($user->first_name) || !empty($user->last_name)) {
+            return trim($user->first_name . ' ' . $user->last_name);
+        }
+        return null;
+    }
+
+    public function getUserEmail(): ?string
+    {
+        if (!$this->checkUserPluginIsExists()) {
+            return null;
+        }
+        $user = Auth::user();
+        if (!empty($user->email)) {
+            return $user->email;
+        }
+        return null;
+    }
 }

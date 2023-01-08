@@ -48,6 +48,8 @@ class Comments extends ComponentBase
         $this->page['comments'] = $this->renderComments();
         $this->page['properties'] = $this->properties;
         $this->page['showCommentsForm'] = $this->showCommentsForm();
+        $this->page['userName'] = $this->userProvider->getUserName();
+        $this->page['userEmail'] = $this->userProvider->getUserEmail();
     }
 
     public function onCommentStore(): array
