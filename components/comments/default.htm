@@ -12,13 +12,15 @@
                 <input type="hidden" name="parent_id" value="">
                 <div id="{{ __SELF__ }}-flash" class="app-dimsog-comment-form__flash"></div>
                 <div class="app-dimsog-comment-form-answer-block"></div>
-                <div class="dimsog-comment-form-field dimsog-comment-form-field--user-name">
-                    <input type="text" name="name" value="{{ userName }}" placeholder="{{ 'dimsog.comments::lang.components.comments.views.your_name' | trans }}" class="dimsog-comment-form-field__input" required>
-                </div>
-                {% if properties.email %}
-                <div class="dimsog-comment-form-field dimsog-comment-form-field--user-email">
-                    <input type="email" name="email" value="{{ userEmail }}" placeholder="{{ 'dimsog.comments::lang.components.comments.views.your_email' | trans }}" class="dimsog-comment-form-field__input" required>
-                </div>
+                {% if userIsGuest or onlyForAuthUsers == false %}
+                    <div class="dimsog-comment-form-field dimsog-comment-form-field--user-name">
+                        <input type="text" name="name" placeholder="{{ 'dimsog.comments::lang.components.comments.views.your_name' | trans }}" class="dimsog-comment-form-field__input" required>
+                    </div>
+                    {% if properties.email %}
+                    <div class="dimsog-comment-form-field dimsog-comment-form-field--user-email">
+                        <input type="email" name="email" placeholder="{{ 'dimsog.comments::lang.components.comments.views.your_email' | trans }}" class="dimsog-comment-form-field__input" required>
+                    </div>
+                    {% endif %}
                 {% endif %}
                 <div class="dimsog-comment-form-field dimsog-comment-form-field--comment">
                     <textarea name="comment" placeholder="{{ 'dimsog.comments::lang.components.comments.views.text' | trans }}" class="dimsog-comment-form-field__input" rows="6" required></textarea>

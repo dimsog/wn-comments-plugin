@@ -45,11 +45,10 @@ class Comments extends ComponentBase
     {
         $this->page['onlyForAuthUsers'] = $this->onlyForAuthUsers();
         $this->page['userPluginIsExists'] = $this->userProvider->checkUserPluginIsExists();
+        $this->page['userIsGuest'] = $this->userProvider->isGuest();
+        $this->page['showCommentsForm'] = $this->showCommentsForm();
         $this->page['comments'] = $this->renderComments();
         $this->page['properties'] = $this->properties;
-        $this->page['showCommentsForm'] = $this->showCommentsForm();
-        $this->page['userName'] = $this->userProvider->getUserName();
-        $this->page['userEmail'] = $this->userProvider->getUserEmail();
     }
 
     public function onCommentStore(): array
@@ -59,10 +58,13 @@ class Comments extends ComponentBase
         $model = new Comment();
         $model->parent_id = (int) post('parent_id', 0);
         $model->group_id = $group->id;
-        $model->user_name = post('name');
-        $model->user_email = post('email');
-        if ($this->onlyForAuthUsers()) {
+        if ($this->onlyForAuthUsers() && !$this->userProvider->isGuest()) {
             $model->user_id = $this->userProvider->getUserId();
+            $model->user_name = $this->userProvider->getUserName();
+            $model->user_email = $this->userProvider->getUserEmail();
+        } else {
+            $model->user_name = post('name');
+            $model->user_email = post('email');
         }
         $model->comment = post('comment');
         $model->active = Settings::isModerateComments() ? 0 : 1;
@@ -162,6 +164,10 @@ class Comments extends ComponentBase
             'comment' => 'required|string'
         ];
         if ($this->property('email') == false) {
+            unset($rules['email']);
+        }
+        if ($this->onlyForAuthUsers() && !$this->userProvider->isGuest()) {
+            unset($rules['name']);
             unset($rules['email']);
         }
         return Validator::make($data, $rules);
