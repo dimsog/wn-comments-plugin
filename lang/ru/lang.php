@@ -52,6 +52,7 @@ return [
             'columns' => [
                 'id' => 'ID',
                 'created_at' => 'Дата создания',
+                'user_id' => 'ID пользователя',
                 'user_name' => 'Имя',
                 'user_email' => 'Email',
                 'url' => 'URL',

@@ -52,6 +52,7 @@ return [
             'columns' => [
                 'id' => 'ID',
                 'created_at' => 'Created At',
+                'user_id' => 'User ID',
                 'user_name' => 'User name',
                 'user_email' => 'User email',
                 'url' => 'URL',
