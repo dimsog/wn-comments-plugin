@@ -127,7 +127,7 @@ class Comments extends ComponentBase
             ],
             'auth' => [
                 'title' => 'dimsog.comments.lang.components.comments.properties.auth',
-                'type' => 'boolean',
+                'type' => 'checkbox',
                 'default' => false
             ]
         ];
@@ -212,7 +212,7 @@ class Comments extends ComponentBase
 
     private function needAuth(): bool
     {
-        return $this->property('auth') == true;
+        return (int) $this->property('auth') == true;
     }
 
     private function throwAjaxException(string $message): void
