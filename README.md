@@ -53,6 +53,7 @@ layout = "default"
 
 [comments]
 auth = true
+
 ==
 
 {% component 'comments' %}
