@@ -5,16 +5,19 @@ declare(strict_types=1);
 namespace Dimsog\Comments\Classes;
 
 use Auth;
+use Winter\Storm\Auth\Models\User;
 
 class UserProvider
 {
     private ?int $userId = null;
 
+    private ?User $user;
 
     public function __construct()
     {
         if ($this->checkUserPluginIsExists()) {
             $this->userId = Auth::id();
+            $this->user = Auth::user();
         }
     }
 
@@ -30,35 +33,30 @@ class UserProvider
 
     public function isGuest(): bool
     {
-        if (!$this->checkUserPluginIsExists()) {
-            return true;
-        }
-        return !Auth::check();
+        return empty($this->user);
     }
 
     public function getUserName(): ?string
     {
-        if (!$this->checkUserPluginIsExists()) {
+        if (empty($this->user)) {
             return null;
         }
-        $user = Auth::user();
-        if (!empty($user->name)) {
-            return $user->name;
+        if (!empty($this->user->name)) {
+            return $this->user->name;
         }
-        if (!empty($user->first_name) || !empty($user->last_name)) {
-            return trim($user->first_name . ' ' . $user->last_name);
+        if (!empty($this->user->first_name) || !empty($this->user->last_name)) {
+            return trim($this->user->first_name . ' ' . $this->user->last_name);
         }
         return null;
     }
 
     public function getUserEmail(): ?string
     {
-        if (!$this->checkUserPluginIsExists()) {
+        if (empty($this->user)) {
             return null;
         }
-        $user = Auth::user();
-        if (!empty($user->email)) {
-            return $user->email;
+        if (!empty($this->user->email)) {
+            return $this->user->email;
         }
         return null;
     }
