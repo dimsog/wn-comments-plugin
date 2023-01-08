@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Dimsog\Comments\Components;
 
-use Auth;
 use Backend\Facades\Backend;
 use Cms\Classes\ComponentBase;
 use Dimsog\Comments\Classes\CommentsTreeGenerator;
+use Dimsog\Comments\Classes\UserProvider;
 use Dimsog\Comments\Models\Comment;
 use Dimsog\Comments\Models\CommentGroup;
 use Dimsog\Comments\Models\Settings;
@@ -19,12 +19,20 @@ use Illuminate\Support\Facades\Mail;
 
 class Comments extends ComponentBase
 {
+    private UserProvider $userProvider;
+
+
     public function componentDetails(): array
     {
         return [
             'name'        => 'dimsog.comments::lang.components.comments.name',
             'description' => 'dimsog.comments::lang.components.comments.description'
         ];
+    }
+
+    public function init(): void
+    {
+        $this->userProvider = new UserProvider();
     }
 
     public function onRun()
@@ -49,7 +57,7 @@ class Comments extends ComponentBase
         $model->user_name = post('name');
         $model->user_email = post('email');
         if ($this->onlyForAuthUsers()) {
-            $model->user_id = Auth::id();
+            $model->user_id = $this->userProvider->getUserId();
         }
         $model->comment = post('comment');
         $model->active = Settings::isModerateComments() ? 0 : 1;
@@ -157,10 +165,10 @@ class Comments extends ComponentBase
     private function validateOrFail(): void
     {
         if ($this->onlyForAuthUsers()) {
-            if (!$this->checkAuthClassExists()) {
+            if (!$this->userProvider->checkUserPluginIsExists()) {
                 $this->throwAjaxException(trans('dimsog.comments::lang.components.comments.validator.please_install_user_plugin'));
             }
-            if (!Auth::check()) {
+            if ($this->userProvider->isGuest()) {
                 $this->throwAjaxException(trans('dimsog.comments::lang.components.comments.validator.auth'));
             }
         }
@@ -194,11 +202,6 @@ class Comments extends ComponentBase
     private function onlyForAuthUsers(): bool
     {
         return $this->property('auth') == true;
-    }
-
-    private function checkAuthClassExists(): bool
-    {
-        return class_exists(Auth::class);
     }
 
     private function throwAjaxException(string $message): void
