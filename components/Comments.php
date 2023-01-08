@@ -212,7 +212,7 @@ class Comments extends ComponentBase
 
     private function needAuth(): bool
     {
-        return (int) $this->property('auth') == true;
+        return (int) $this->property('auth') === 1;
     }
 
     private function throwAjaxException(string $message): void
