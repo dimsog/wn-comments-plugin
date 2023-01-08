@@ -10,6 +10,18 @@
     margin-bottom: 10px;
 }
 
+.dimsog-comments-form-wrapper .dimsog-comments-form-validation-errors {
+    background: #e7d1d3;
+    border: 1px solid #dbbaba;
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.dimsog-comments-form-wrapper .dimsog-comments-form-validation-errors ul {
+    margin-bottom: 0;
+}
+
 .dimsog-comment-form .dimsog-comment-form-field--reply-user {
     font-weight: 600;
     color: #000;

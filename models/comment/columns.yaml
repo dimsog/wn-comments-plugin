@@ -8,6 +8,8 @@ columns:
         searchable: true
     created_at:
         label: dimsog.comments::lang.models.comment.columns.created_at
+    user_id:
+        label: dimsog.comments::lang.models.comment.columns.user_id
     user_name:
         label: dimsog.comments::lang.models.comment.columns.user_name
     user_email:

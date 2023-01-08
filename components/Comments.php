@@ -7,6 +7,7 @@ namespace Dimsog\Comments\Components;
 use Backend\Facades\Backend;
 use Cms\Classes\ComponentBase;
 use Dimsog\Comments\Classes\CommentsTreeGenerator;
+use Dimsog\Comments\Classes\UserProvider;
 use Dimsog\Comments\Models\Comment;
 use Dimsog\Comments\Models\CommentGroup;
 use Dimsog\Comments\Models\Settings;
@@ -18,12 +19,20 @@ use Illuminate\Support\Facades\Mail;
 
 class Comments extends ComponentBase
 {
+    private UserProvider $userProvider;
+
+
     public function componentDetails(): array
     {
         return [
             'name'        => 'dimsog.comments::lang.components.comments.name',
             'description' => 'dimsog.comments::lang.components.comments.description'
         ];
+    }
+
+    public function init(): void
+    {
+        $this->userProvider = new UserProvider();
     }
 
     public function onRun()
@@ -34,6 +43,10 @@ class Comments extends ComponentBase
 
     public function onRender()
     {
+        $this->page['onlyForAuthUsers'] = $this->needAuth();
+        $this->page['userPluginIsExists'] = $this->userProvider->checkUserPluginIsExists();
+        $this->page['userIsGuest'] = $this->userProvider->isGuest();
+        $this->page['showCommentsForm'] = $this->showCommentsForm();
         $this->page['comments'] = $this->renderComments();
         $this->page['properties'] = $this->properties;
     }
@@ -45,8 +58,14 @@ class Comments extends ComponentBase
         $model = new Comment();
         $model->parent_id = (int) post('parent_id', 0);
         $model->group_id = $group->id;
-        $model->user_name = post('name');
-        $model->user_email = post('email');
+        if ($this->needAuth() && !$this->userProvider->isGuest()) {
+            $model->user_id = $this->userProvider->getUserId();
+            $model->user_name = $this->userProvider->getUserName();
+            $model->user_email = $this->userProvider->getUserEmail();
+        } else {
+            $model->user_name = post('name');
+            $model->user_email = post('email');
+        }
         $model->comment = post('comment');
         $model->active = Settings::isModerateComments() ? 0 : 1;
         if ($model->save() && Settings::isEmailNotification() && !empty(Settings::getAdminEmail())) {
@@ -105,6 +124,11 @@ class Comments extends ComponentBase
                 'title' => 'dimsog.comments::lang.components.comments.properties.dateformat',
                 'type' => 'string',
                 'default' => 'd.m.Y H:i'
+            ],
+            'auth' => [
+                'title' => 'dimsog.comments::lang.components.comments.properties.auth',
+                'type' => 'checkbox',
+                'default' => false
             ]
         ];
     }
@@ -142,18 +166,26 @@ class Comments extends ComponentBase
         if ($this->property('email') == false) {
             unset($rules['email']);
         }
+        if ($this->needAuth() && !$this->userProvider->isGuest()) {
+            unset($rules['name']);
+            unset($rules['email']);
+        }
         return Validator::make($data, $rules);
     }
 
     private function validateOrFail(): void
     {
+        if ($this->needAuth()) {
+            if (!$this->userProvider->checkUserPluginIsExists()) {
+                $this->throwAjaxException(trans('dimsog.comments::lang.components.comments.validator.please_install_user_plugin'));
+            }
+            if ($this->userProvider->isGuest()) {
+                $this->throwAjaxException(trans('dimsog.comments::lang.components.comments.validator.auth'));
+            }
+        }
         $validator = $this->makeValidator(post());
         if ($validator->fails()) {
-            throw new AjaxException([
-                '#' . $this->alias . '-flash' => $this->renderPartial('@flash/errors.htm', [
-                    'errors' => $validator->errors()->all()
-                ])
-            ]);
+            $this->throwAjaxExceptionFromErrorsArray($validator->errors()->all());
         }
     }
 
@@ -176,5 +208,32 @@ class Comments extends ComponentBase
             'tree' => $this->property('tree'),
             'dateformat' => $this->property('dateformat')
         ]);
+    }
+
+    private function needAuth(): bool
+    {
+        return (int) $this->property('auth') === 1;
+    }
+
+    private function throwAjaxException(string $message): void
+    {
+        $this->throwAjaxExceptionFromErrorsArray([$message]);
+    }
+
+    private function throwAjaxExceptionFromErrorsArray(array $errors): void
+    {
+        throw new AjaxException([
+            '#' . $this->alias . '-flash' => $this->renderPartial('@flash/errors.htm', [
+                'errors' => $errors
+            ])
+        ]);
+    }
+
+    private function showCommentsForm(): bool
+    {
+        if (!$this->needAuth()) {
+            return true;
+        }
+        return !$this->userProvider->isGuest();
     }
 }

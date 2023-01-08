@@ -13,7 +13,8 @@ return [
                 'url' => 'URL',
                 'tree' => 'Дерево комментариев',
                 'email' => 'Показывать поле Email',
-                'dateformat' => 'Формат даты'
+                'dateformat' => 'Формат даты',
+                'auth' => 'Только для вошедших пользователей'
             ],
             'success_message_moderate' => 'Ваш комментарий будет опубликован для всех после проверки',
             'success_message' => 'Комментарий добавлен',
@@ -23,9 +24,15 @@ return [
                 'your_name' => 'Ваше имя',
                 'your_email' => 'Ваш email',
                 'text' => 'Текст комментария',
-                'send' => 'Отправить'
+                'send' => 'Отправить',
+                'form_disabled' => 'Форма комментариев была отключена',
+                'please_login' => 'Войдите, чтобы оставить комментарий'
             ],
-            'guest_name' => 'Гость'
+            'guest_name' => 'Гость',
+            'validator' => [
+                'auth' => 'Войдите, чтобы оставить комментарий',
+                'please_install_user_plugin' => 'Класс Auth не найден. Пожалуйста установите плагин пользователей (например: winter/wn-user-plugin)'
+            ]
         ]
     ],
     'settings' => [
@@ -45,6 +52,7 @@ return [
             'columns' => [
                 'id' => 'ID',
                 'created_at' => 'Дата создания',
+                'user_id' => 'ID пользователя',
                 'user_name' => 'Имя',
                 'user_email' => 'Email',
                 'url' => 'URL',

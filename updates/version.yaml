@@ -33,3 +33,5 @@
     - 'New: email notifications'
 1.1.4:
     - 'Fix: minor code improvements'
+1.1.5:
+    - 'New: support front-end users'
