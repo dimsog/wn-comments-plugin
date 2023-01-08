@@ -126,7 +126,7 @@ class Comments extends ComponentBase
                 'default' => 'd.m.Y H:i'
             ],
             'auth' => [
-                'title' => 'dimsog.comments.lang.components.comments.properties.auth',
+                'title' => 'dimsog.comments::lang.components.comments.properties.auth',
                 'type' => 'checkbox',
                 'default' => false
             ]
