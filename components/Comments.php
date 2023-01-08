@@ -43,7 +43,7 @@ class Comments extends ComponentBase
 
     public function onRender()
     {
-        $this->page['onlyForAuthUsers'] = $this->onlyForAuthUsers();
+        $this->page['onlyForAuthUsers'] = $this->needAuth();
         $this->page['userPluginIsExists'] = $this->userProvider->checkUserPluginIsExists();
         $this->page['userIsGuest'] = $this->userProvider->isGuest();
         $this->page['showCommentsForm'] = $this->showCommentsForm();
@@ -58,7 +58,7 @@ class Comments extends ComponentBase
         $model = new Comment();
         $model->parent_id = (int) post('parent_id', 0);
         $model->group_id = $group->id;
-        if ($this->onlyForAuthUsers() && !$this->userProvider->isGuest()) {
+        if ($this->needAuth() && !$this->userProvider->isGuest()) {
             $model->user_id = $this->userProvider->getUserId();
             $model->user_name = $this->userProvider->getUserName();
             $model->user_email = $this->userProvider->getUserEmail();
@@ -166,7 +166,7 @@ class Comments extends ComponentBase
         if ($this->property('email') == false) {
             unset($rules['email']);
         }
-        if ($this->onlyForAuthUsers() && !$this->userProvider->isGuest()) {
+        if ($this->needAuth() && !$this->userProvider->isGuest()) {
             unset($rules['name']);
             unset($rules['email']);
         }
@@ -175,7 +175,7 @@ class Comments extends ComponentBase
 
     private function validateOrFail(): void
     {
-        if ($this->onlyForAuthUsers()) {
+        if ($this->needAuth()) {
             if (!$this->userProvider->checkUserPluginIsExists()) {
                 $this->throwAjaxException(trans('dimsog.comments::lang.components.comments.validator.please_install_user_plugin'));
             }
@@ -210,7 +210,7 @@ class Comments extends ComponentBase
         ]);
     }
 
-    private function onlyForAuthUsers(): bool
+    private function needAuth(): bool
     {
         return $this->property('auth') == true;
     }
@@ -231,7 +231,7 @@ class Comments extends ComponentBase
 
     private function showCommentsForm(): bool
     {
-        if (!$this->onlyForAuthUsers()) {
+        if (!$this->needAuth()) {
             return true;
         }
         return !$this->userProvider->isGuest();
