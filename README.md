@@ -87,4 +87,4 @@ Count: <span id="comments-count">{{ comments.count('/') }}</span>
 
 
 ### Configuration
-![image](https://user-images.githubusercontent.com/904958/147883069-479315ab-6c16-4298-ba9c-2a821f96b910.png)
+![image](https://user-images.githubusercontent.com/904958/211208685-4f0603da-1bef-4fba-9791-f25460b3a2da.png)
