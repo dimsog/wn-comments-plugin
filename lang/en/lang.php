@@ -24,7 +24,9 @@ return [
                 'your_name' => 'Your name',
                 'your_email' => 'Your email',
                 'text' => 'Text...',
-                'send' => 'Send'
+                'send' => 'Send',
+                'form_disabled' => 'The comment form has been disabled',
+                'please_login' => 'Please login to leave a comment'
             ],
             'guest_name' => 'Guest',
             'validator' => [

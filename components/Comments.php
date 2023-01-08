@@ -43,8 +43,11 @@ class Comments extends ComponentBase
 
     public function onRender()
     {
+        $this->page['onlyForAuthUsers'] = $this->onlyForAuthUsers();
+        $this->page['userPluginIsExists'] = $this->userProvider->checkUserPluginIsExists();
         $this->page['comments'] = $this->renderComments();
         $this->page['properties'] = $this->properties;
+        $this->page['showCommentsForm'] = $this->showCommentsForm();
     }
 
     public function onCommentStore(): array
@@ -216,5 +219,13 @@ class Comments extends ComponentBase
                 'errors' => $errors
             ])
         ]);
+    }
+
+    private function showCommentsForm(): bool
+    {
+        if (!$this->onlyForAuthUsers()) {
+            return true;
+        }
+        return !$this->userProvider->isGuest();
     }
 }

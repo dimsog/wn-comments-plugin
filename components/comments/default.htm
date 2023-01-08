@@ -4,6 +4,10 @@
             {{ comments | raw }}
         </div>
         <div class="dimsog-comments-form-wrapper">
+            {% if onlyForAuthUsers and userPluginIsExists == false %}
+                {% partial '@flash/errors.htm' message = 'dimsog.comments::lang.components.comments.validator.please_install_user_plugin' %}
+            {% endif %}
+            {% if showCommentsForm %}
             <form class="dimsog-comment-form" id="{{ __SELF__ }}-comment-form" data-request="{{ __SELF__ }}::onCommentStore" data-request-success="onDimsogCommentsSendSuccess(document.querySelector('#{{ __SELF__ }}-comment-form'))">
                 <input type="hidden" name="parent_id" value="">
                 <div id="{{ __SELF__ }}-flash" class="app-dimsog-comment-form__flash"></div>
@@ -25,6 +29,15 @@
                     </button>
                 </div>
             </form>
+            {% else %}
+                {% if userPluginIsExists %}
+                    <div class="dimsog-comment-form-please-login">
+                        {{ 'dimsog.comments::lang.components.comments.views.please_login' | trans }}
+                    </div>
+                {% else %}
+                    {{ 'dimsog.comments::lang.components.comments.views.form_disabled' | trans }}
+                {% endif %}
+            {% endif %}
         </div>
     </div>
 </div>
