@@ -6,7 +6,7 @@ namespace Dimsog\Comments\Classes;
 
 use Dimsog\Comments\Models\Comment;
 
-class UnreadCommentsCalculator
+final class UnreadCommentsCalculator
 {
     public static function calculate(): int
     {

@@ -17,7 +17,7 @@ use Illuminate\Validation\Rule;
 use Winter\Storm\Exception\AjaxException;
 use Illuminate\Support\Facades\Mail;
 
-class Comments extends ComponentBase
+final class Comments extends ComponentBase
 {
     private UserProvider $userProvider;
 
@@ -35,13 +35,13 @@ class Comments extends ComponentBase
         $this->userProvider = new UserProvider();
     }
 
-    public function onRun()
+    public function onRun(): void
     {
-        $this->controller->addJs('/plugins/dimsog/comments/assets/script.js', 'Dimsog.Comments');
-        $this->controller->addCss('/plugins/dimsog/comments/assets/style.css', 'Dimsog.Comments');
+        $this->controller->addJs('/plugins/dimsog/comments/assets/dist/comments.js', 'Dimsog.Comments');
+        $this->controller->addCss('/plugins/dimsog/comments/assets/dist/comments.css', 'Dimsog.Comments');
     }
 
-    public function onRender()
+    public function onRender(): void
     {
         $this->page['onlyForAuthUsers'] = $this->needAuth();
         $this->page['userPluginIsExists'] = $this->userProvider->checkUserPluginIsExists();

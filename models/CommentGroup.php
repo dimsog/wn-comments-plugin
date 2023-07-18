@@ -12,7 +12,7 @@ use Winter\Storm\Database\Traits\Validation;
  * @property int $id
  * @property string $url
  */
-class CommentGroup extends Model
+final class CommentGroup extends Model
 {
     use Validation;
 

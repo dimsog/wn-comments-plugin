@@ -14,7 +14,7 @@ use Winter\Storm\Database\Builder;
 /**
  * Comments Back-end Controller
  */
-class Comments extends Controller
+final class Comments extends Controller
 {
     /**
      * @var array Behaviors that are implemented by this controller.

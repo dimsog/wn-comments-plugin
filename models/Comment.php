@@ -22,7 +22,7 @@ use Winter\Storm\Database\Traits\Validation;
  * @property int $active
  * @property bool $is_backend_viewed
  */
-class Comment extends Model
+final class Comment extends Model
 {
     use Validation;
     use SoftDelete;

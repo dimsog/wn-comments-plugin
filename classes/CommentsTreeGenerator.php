@@ -6,12 +6,11 @@ namespace Dimsog\Comments\Classes;
 
 use Illuminate\Database\Eloquent\Collection;
 
-class CommentsTreeGenerator
+final class CommentsTreeGenerator
 {
     public function __construct(
         private Collection $comments
-    )
-    {
+    ) {
     }
 
     public function generate(): array
