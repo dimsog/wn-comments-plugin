@@ -20,6 +20,7 @@ export default class Form {
                             data: serializeArrayToObject($form.serializeArray()),
                             success: (response) => {
                                 Alert.success(response.message);
+                                this._reset($form);
                             },
                             error: (errors) => {
                                 Alert.error(errors);
@@ -42,5 +43,11 @@ export default class Form {
                 }
             });
         });
+    }
+
+    static _reset($form) {
+        $form.find('input[type=text]').val('');
+        $form.find('input[type=email]').val('');
+        $form.find('textarea').val('');
     }
 }
