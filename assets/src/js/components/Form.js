@@ -9,7 +9,7 @@ export default class Form {
                 .then((response) => {
                     const $form = $(response.form);
                     resolve($form);
-                    $form.find('input[name=parent_id]').val(options?.parentId ?? 0);
+                    $form.find('input[name=parent_id]').val(options?.parentId ?? null);
                     autosize($form.find('textarea'));
 
                     $form.on('submit', (e) => {
