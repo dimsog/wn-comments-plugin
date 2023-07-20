@@ -7,6 +7,7 @@ namespace Dimsog\Comments\Components;
 use Backend\Facades\Backend;
 use Cms\Classes\ComponentBase;
 use Dimsog\Comments\Classes\CommentsTreeGenerator;
+use Dimsog\Comments\Classes\Exceptions\ValidationException;
 use Dimsog\Comments\Classes\UserProvider;
 use Dimsog\Comments\Models\Comment;
 use Dimsog\Comments\Models\CommentGroup;
@@ -43,45 +44,57 @@ final class Comments extends ComponentBase
 
     public function onRender(): void
     {
-        $this->page['onlyForAuthUsers'] = $this->needAuth();
-        $this->page['userPluginIsExists'] = $this->userProvider->checkUserPluginIsExists();
-        $this->page['userIsGuest'] = $this->userProvider->isGuest();
-        $this->page['showCommentsForm'] = $this->showCommentsForm();
         $this->page['comments'] = $this->renderComments();
-        $this->page['properties'] = $this->properties;
+    }
+
+    public function onCommentsLoadForm(): array
+    {
+        return [
+            'form' => $this->renderPartial('@partials/form', [
+                'onlyForAuthUsers' => $this->needAuth(),
+                'userPluginIsExists' => $this->userProvider->checkUserPluginIsExists(),
+                'userIsGuest' => $this->userProvider->isGuest(),
+                'showCommentsForm' => $this->showCommentsForm(),
+                'properties' => $this->properties
+            ]),
+            'alias' => $this->alias
+        ];
     }
 
     public function onCommentStore(): array
     {
-        $this->validateOrFail();
-        $group = $this->findOrCreateNewGroup();
-        $model = new Comment();
-        $model->parent_id = (int) post('parent_id', 0);
-        $model->group_id = $group->id;
-        if ($this->needAuth() && !$this->userProvider->isGuest()) {
-            $model->user_id = $this->userProvider->getUserId();
-            $model->user_name = $this->userProvider->getUserName();
-            $model->user_email = $this->userProvider->getUserEmail();
-        } else {
-            $model->user_name = post('name');
-            $model->user_email = post('email');
-        }
-        $model->comment = post('comment');
-        $model->active = Settings::isModerateComments() ? 0 : 1;
-        if ($model->save() && Settings::isEmailNotification() && !empty(Settings::getAdminEmail())) {
-            Mail::sendTo(Settings::getAdminEmail(), 'dimsog.comments::mail.new_comment', [
-                'model' => $model,
-                'approve_url' => Backend::url('dimsog/comments/comments/update/' . $model->id)
-            ]);
-        }
+        try {
+            $this->validateOrFail();
+            $group = $this->findOrCreateNewGroup();
+            $model = new Comment();
+            $model->parent_id = (int)post('parent_id', 0);
+            $model->group_id = $group->id;
+            if ($this->needAuth() && !$this->userProvider->isGuest()) {
+                $model->user_id = $this->userProvider->getUserId();
+                $model->user_name = $this->userProvider->getUserName();
+                $model->user_email = $this->userProvider->getUserEmail();
+            } else {
+                $model->user_name = post('name');
+                $model->user_email = post('email');
+            }
+            $model->comment = post('comment');
+            $model->active = Settings::isModerateComments() ? 0 : 1;
+            if ($model->save() && Settings::isEmailNotification() && !empty(Settings::getAdminEmail())) {
+                Mail::sendTo(Settings::getAdminEmail(), 'dimsog.comments::mail.new_comment', [
+                    'model' => $model,
+                    'approve_url' => Backend::url('dimsog/comments/comments/update/' . $model->id)
+                ]);
+            }
 
-        return [
-            '#' . $this->alias . '-flash' => $this->renderPartial('@flash/success.htm', [
-                'message' => $this->getSuccessMessage()
-            ]),
-            '#' . $this->alias . '-comments-list' => $this->renderComments(),
-            '#' . $this->alias . '-count' => $this->countActiveCommentsFromCurrentPage()
-        ];
+            return [
+                'message' => $this->getSuccessMessage(),
+                '#' . $this->alias . '-comments-list' => $this->renderComments(),
+                '#' . $this->alias . '-count' => $this->countActiveCommentsFromCurrentPage()
+            ];
+        } catch (ValidationException $e) {
+            $this->controller->setStatusCode(422);
+            return $e->getErrors();
+        }
     }
 
     public function countActiveCommentsByUrl(string $url): int
@@ -177,15 +190,15 @@ final class Comments extends ComponentBase
     {
         if ($this->needAuth()) {
             if (!$this->userProvider->checkUserPluginIsExists()) {
-                $this->throwAjaxException(trans('dimsog.comments::lang.components.comments.validator.please_install_user_plugin'));
+                throw new ValidationException([trans('dimsog.comments::lang.components.comments.validator.please_install_user_plugin')]);
             }
             if ($this->userProvider->isGuest()) {
-                $this->throwAjaxException(trans('dimsog.comments::lang.components.comments.validator.auth'));
+                throw new ValidationException([trans('dimsog.comments::lang.components.comments.validator.auth')]);
             }
         }
         $validator = $this->makeValidator(post());
         if ($validator->fails()) {
-            $this->throwAjaxExceptionFromErrorsArray($validator->errors()->all());
+            throw new ValidationException($validator->errors()->all());
         }
     }
 
@@ -213,20 +226,6 @@ final class Comments extends ComponentBase
     private function needAuth(): bool
     {
         return (int) $this->property('auth') === 1;
-    }
-
-    private function throwAjaxException(string $message): void
-    {
-        $this->throwAjaxExceptionFromErrorsArray([$message]);
-    }
-
-    private function throwAjaxExceptionFromErrorsArray(array $errors): void
-    {
-        throw new AjaxException([
-            '#' . $this->alias . '-flash' => $this->renderPartial('@flash/errors.htm', [
-                'errors' => $errors
-            ])
-        ]);
     }
 
     private function showCommentsForm(): bool

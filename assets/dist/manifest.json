@@ -1,0 +1,14 @@
+{
+  "src/js/app.css": {
+    "file": "comments.css",
+    "src": "src/js/app.css"
+  },
+  "src/js/app.js": {
+    "css": [
+      "comments.css"
+    ],
+    "file": "comments.js",
+    "isEntry": true,
+    "src": "src/js/app.js"
+  }
+}
