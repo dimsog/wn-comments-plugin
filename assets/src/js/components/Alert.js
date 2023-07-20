@@ -19,15 +19,18 @@ export default class {
             position: "center",
             stopOnFocus: true,
             style: {
-                background: "linear-gradient(to right, #00b09b, #96c93d)",
+                background: "rgb(55,100,218)",
             }
         }).showToast();
         alerts.push(alert);
     }
 
     static error(errors) {
+        if (errors instanceof Array) {
+            errors = errors.join('<br>');
+        }
         const alert = Toastify({
-            text: errors.join('<br>'),
+            text: errors,
             duration: 10000,
             newWindow: true,
             close: true,
@@ -36,7 +39,7 @@ export default class {
             position: "center",
             stopOnFocus: true,
             style: {
-                background: "linear-gradient(to right, #ff5f6d, #ffc371)",
+                background: "rgb(218,55,93)",
             }
         }).showToast();
         alerts.push(alert);

@@ -28,6 +28,8 @@ export default class Form {
                         });
                     })
                     $root.append($form);
+                }).catch((message) => {
+                    Alert.error(message);
                 });
         });
     }
@@ -38,8 +40,8 @@ export default class Form {
                 success: (response) => {
                     resolve(response)
                 },
-                error: (reason) => {
-                    reject(reason);
+                error: (response) => {
+                    reject(response.text);
                 }
             });
         });

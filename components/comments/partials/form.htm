@@ -1,6 +1,3 @@
-{% if onlyForAuthUsers and userPluginIsExists == false %}
-{% partial '@flash/errors.htm' message = 'dimsog.comments::lang.components.comments.validator.please_install_user_plugin' %}
-{% endif %}
 {% if showCommentsForm %}
 <form class="d-comment-form" id="{{ __SELF__ }}-comment-form"
       data-request-success="onDimsogCommentsSendSuccess(document.querySelector('#{{ __SELF__ }}-comment-form'))">

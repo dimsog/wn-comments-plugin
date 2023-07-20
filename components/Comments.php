@@ -49,6 +49,13 @@ final class Comments extends ComponentBase
 
     public function onCommentsLoadForm(): array
     {
+        if ($this->needAuth() && !$this->userProvider->checkUserPluginIsExists()) {
+            $this->controller->setStatusCode(422);
+            return [
+                'success' => false,
+                'text' => trans('dimsog.comments::lang.components.comments.validator.please_install_user_plugin')
+            ];
+        }
         return [
             'form' => $this->renderPartial('@partials/form', [
                 'onlyForAuthUsers' => $this->needAuth(),
