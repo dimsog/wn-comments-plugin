@@ -2,38 +2,38 @@
 {% partial '@flash/errors.htm' message = 'dimsog.comments::lang.components.comments.validator.please_install_user_plugin' %}
 {% endif %}
 {% if showCommentsForm %}
-<form class="dimsog-comment-form" id="{{ __SELF__ }}-comment-form"
+<form class="d-comment-form" id="{{ __SELF__ }}-comment-form"
       data-request-success="onDimsogCommentsSendSuccess(document.querySelector('#{{ __SELF__ }}-comment-form'))">
-    <div class="dimsog-comment-form-fields">
+    <div class="d-comment-form-fields">
         <input type="hidden" name="parent_id" value="">
         {% if userIsGuest or onlyForAuthUsers == false %}
-        <div class="dimsog-comment-form-field dimsog-comment-form-field--user-name">
+        <div class="d-comment-form-field d-comment-form-field--user-name">
             <input type="text" name="name"
                    placeholder="{{ 'dimsog.comments::lang.components.comments.views.your_name' | trans }}"
-                   class="dimsog-comment-form-field__input" required>
+                   class="d-comment-form-field__input" required>
         </div>
         {% if properties.email %}
-        <div class="dimsog-comment-form-field dimsog-comment-form-field--user-email">
+        <div class="d-comment-form-field d-comment-form-field--user-email">
             <input type="email" name="email"
                    placeholder="{{ 'dimsog.comments::lang.components.comments.views.your_email' | trans }}"
-                   class="dimsog-comment-form-field__input" required>
+                   class="d-comment-form-field__input" required>
         </div>
         {% endif %}
         {% endif %}
-        <div class="dimsog-comment-form-field dimsog-comment-form-field--comment">
+        <div class="d-comment-form-field d-comment-form-field--comment">
             <textarea name="comment" placeholder="{{ 'dimsog.comments::lang.components.comments.views.text' | trans }}"
-                      class="dimsog-comment-form-field__input dimsog-comment-form-field__input--no-borders" rows="4" required></textarea>
+                      class="d-comment-form-field__input d-comment-form-field__input--no-borders" rows="4" required></textarea>
         </div>
     </div>
-    <div class="dimsog-comment-form-field-buttons">
-        <button type="submit" class="dimsog-comment-form-field__btn">
+    <div class="d-comment-form-field-buttons">
+        <button type="submit" class="d-comment-form-field__btn">
             {{ 'dimsog.comments::lang.components.comments.views.send' | trans }}
         </button>
     </div>
 </form>
 {% else %}
 {% if userPluginIsExists %}
-<div class="dimsog-comment-form-please-login">
+<div class="d-comment-form-please-login">
     {{ 'dimsog.comments::lang.components.comments.views.please_login' | trans }}
 </div>
 {% else %}

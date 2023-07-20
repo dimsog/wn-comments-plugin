@@ -1,6 +1,6 @@
-.dimsog-comment-form {
+.d-comment-form {
     padding: 10px 0;
-    .dimsog-comment-form-fields {
+    .d-comment-form-fields {
         border-radius: 5px;
         border: 1px solid #e8e8e8;
         background: #fff;
@@ -9,7 +9,7 @@
             resize: none;
         }
 
-        .dimsog-comment-form-field__input {
+        .d-comment-form-field__input {
             width: 100%;
             padding: 10px;
             outline: none;
@@ -18,15 +18,15 @@
             background: transparent;
         }
 
-        .dimsog-comment-form-field__input--no-borders {
+        .d-comment-form-field__input--no-borders {
             border-bottom: none;
         }
     }
 
-    .dimsog-comment-form-field-buttons {
+    .d-comment-form-field-buttons {
         padding-top: 10px;
 
-        .dimsog-comment-form-field__btn {
+        .d-comment-form-field__btn {
             background: rgb(55, 100, 218);
             padding: 7px 25px;
             border: none;
@@ -44,6 +44,6 @@
     }
 }
 
-.dimsog-comments-form-wrapper {
+.d-comments-form-wrapper {
     padding-top: 10px;
 }
