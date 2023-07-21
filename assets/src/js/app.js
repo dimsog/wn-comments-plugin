@@ -2,6 +2,10 @@ import './../scss/style.scss';
 import Form from "./components/Form";
 
 document.addEventListener('DOMContentLoaded', () => {
+    const $formContainer = document.getElementById('d-comments-form-container');
+    if ($formContainer === null) {
+        return;
+    }
     Form.render(document.getElementById('d-comments-form-container'));
 
     document.addEventListener('click', (e) => {

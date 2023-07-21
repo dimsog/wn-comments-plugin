@@ -39,3 +39,5 @@
     - 'New: drop jquery support'
     - 'New: add snowboard support'
     - 'New: ui improvements'
+1.1.7:
+    - 'Fix: do not load the form if the container is not found'
