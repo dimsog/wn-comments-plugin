@@ -1,6 +1,7 @@
 Add comments to any page on your site.
-![image](https://user-images.githubusercontent.com/904958/209522089-da572948-8d5f-4e01-ab7d-604691f9a85d.png)
+![image](https://github-production-user-asset-6210df.s3.amazonaws.com/904958/255288315-dcd1a143-0fce-4c7c-a2d9-967291fc503f.png)
 ![image](https://user-images.githubusercontent.com/904958/209521953-3ae2ab52-b63d-4d80-b33d-7a0a63bf61ed.png)
+
 
 ### Features
 * Absolutely free (MIT)
@@ -10,6 +11,8 @@ Add comments to any page on your site.
 * Support for tree comments
 * The ability to delete comments
 * Email notifications
+* No jquery!
+* Snowboard support
 
 ### Language support
 * English
