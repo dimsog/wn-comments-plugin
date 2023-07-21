@@ -1,0 +1,49 @@
+.d-comment-form {
+    padding: 10px 0;
+    .d-comment-form-fields {
+        border-radius: 5px;
+        border: 1px solid #e8e8e8;
+        background: #fff;
+
+        textarea {
+            resize: none;
+        }
+
+        .d-comment-form-field__input {
+            width: 100%;
+            padding: 10px;
+            outline: none;
+            border: none;
+            border-bottom: 1px solid #e8e8e8;
+            background: transparent;
+        }
+
+        .d-comment-form-field__input--no-borders {
+            border-bottom: none;
+        }
+    }
+
+    .d-comment-form-field-buttons {
+        padding-top: 10px;
+
+        .d-comment-form-field__btn {
+            background: rgb(55, 100, 218);
+            padding: 7px 25px;
+            border: none;
+            border-radius: 5px;
+            color: #FFF;
+
+            &:hover {
+                background: rgb(67, 114, 236);
+            }
+
+            &:active {
+                background: rgb(44, 87, 199);
+            }
+        }
+    }
+}
+
+.d-comments-form-wrapper {
+    padding-top: 10px;
+}

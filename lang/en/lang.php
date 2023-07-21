@@ -20,11 +20,11 @@ return [
             'success_message' => 'A comment has been added',
             'views' => [
                 'empty' => 'No Comments Yet',
-                'answer' => 'Answer',
+                'answer' => 'Reply',
                 'your_name' => 'Your name',
                 'your_email' => 'Your email',
                 'text' => 'Text...',
-                'send' => 'Send',
+                'send' => 'Post Comment',
                 'form_disabled' => 'The comment form has been disabled',
                 'please_login' => 'Please login to leave a comment'
             ],

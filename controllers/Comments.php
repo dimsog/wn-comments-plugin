@@ -14,7 +14,7 @@ use Winter\Storm\Database\Builder;
 /**
  * Comments Back-end Controller
  */
-class Comments extends Controller
+final class Comments extends Controller
 {
     /**
      * @var array Behaviors that are implemented by this controller.
@@ -55,13 +55,13 @@ class Comments extends Controller
     {
         $classes = [];
         if (!$model->is_backend_viewed) {
-            $classes[] = 'dimsog-backend-comment-unviewed';
+            $classes[] = 'd-backend-comment-unviewed';
         }
         if ($model->active) {
-            $classes[] = 'dimsog-backend-comment-approved';
+            $classes[] = 'd-backend-comment-approved';
         }
         if (!empty($model->deleted_at)) {
-            $classes[] = 'dimsog-backend-comment-deleted';
+            $classes[] = 'd-backend-comment-deleted';
         }
         return implode(' ', $classes);
     }

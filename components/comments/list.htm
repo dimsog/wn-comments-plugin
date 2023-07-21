@@ -1,21 +1,21 @@
 {% if comments is empty %}
-    <div class="dimsog-comments-is-empty">
+    <div class="d-comments-is-empty">
         {{ 'dimsog.comments::lang.components.comments.views.empty' | trans }}
     </div>
 {% endif %}
 
 {% for comment in comments[parentId] %}
-    <div id="comment-{{ comment.id }}" class="dimsog-comment-item">
-        <div class="dimsog-comment-item-header">
-            <div class="dimsog-comment-item-header__user">{{ comment.user_name ?? 'dimsog.comments::lang.components.comments.guest_name'  | trans }}</div>
-            <div class="dimsog-comment-item-header__date">{{ comment.created_at | date(dateformat) }}</div>
+    <div id="comment-{{ comment.id }}" class="d-comment-item">
+        <div class="d-comment-item-header">
+            <div class="d-comment-item-header__user">{{ comment.user_name ?? 'dimsog.comments::lang.components.comments.guest_name'  | trans }}</div>
+            <div class="d-comment-item-header__date">{{ comment.created_at | date(dateformat) }}</div>
         </div>
-        <div class="dimsog-comment-item__text">
+        <div class="d-comment-item__text">
             {{ comment.comment | nl2br }}
         </div>
         {% if tree and comment.active %}
-        <div class="dimsog-comment-item-answer">
-            <a href="#" class="dimsog-comment-item-answer__link app-dimsog-comment-item-answer__link" data-comment-id="{{ comment.id }}" data-user-name="{{ comment.user_name ?? 'dimsog.comments::lang.components.comments.guest_name'  | trans }}">
+        <div class="d-comment-item-answer">
+            <a href="#" class="d-comment-item-answer__link app-d-comment-item-answer__link" data-comment-id="{{ comment.id }}" data-user-name="{{ comment.user_name ?? 'dimsog.comments::lang.components.comments.guest_name'  | trans }}">
                 {{ 'dimsog.comments::lang.components.comments.views.answer' | trans }}
             </a>
         </div>

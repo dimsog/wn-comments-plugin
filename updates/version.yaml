@@ -35,3 +35,7 @@
     - 'Fix: minor code improvements'
 1.1.5:
     - 'New: support front-end users'
+1.1.6:
+    - 'New: drop jquery support'
+    - 'New: add snowboard support'
+    - 'New: ui improvements'

@@ -7,7 +7,7 @@ namespace Dimsog\Comments\Classes;
 use Auth;
 use Winter\Storm\Auth\Models\User;
 
-class UserProvider
+final class UserProvider
 {
     private ?int $userId = null;
 

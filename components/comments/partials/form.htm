@@ -1,0 +1,39 @@
+{% if showCommentsForm %}
+<form class="d-comment-form" id="{{ __SELF__ }}-comment-form"
+      data-request-success="onDimsogCommentsSendSuccess(document.querySelector('#{{ __SELF__ }}-comment-form'))">
+    <div class="d-comment-form-fields">
+        <input type="hidden" name="parent_id" value="">
+        {% if userIsGuest or onlyForAuthUsers == false %}
+        <div class="d-comment-form-field d-comment-form-field--user-name">
+            <input type="text" name="name"
+                   placeholder="{{ 'dimsog.comments::lang.components.comments.views.your_name' | trans }}"
+                   class="d-comment-form-field__input" required>
+        </div>
+        {% if properties.email %}
+        <div class="d-comment-form-field d-comment-form-field--user-email">
+            <input type="email" name="email"
+                   placeholder="{{ 'dimsog.comments::lang.components.comments.views.your_email' | trans }}"
+                   class="d-comment-form-field__input" required>
+        </div>
+        {% endif %}
+        {% endif %}
+        <div class="d-comment-form-field d-comment-form-field--comment">
+            <textarea name="comment" placeholder="{{ 'dimsog.comments::lang.components.comments.views.text' | trans }}"
+                      class="d-comment-form-field__input d-comment-form-field__input--no-borders" rows="4" required></textarea>
+        </div>
+    </div>
+    <div class="d-comment-form-field-buttons">
+        <button type="submit" class="d-comment-form-field__btn">
+            {{ 'dimsog.comments::lang.components.comments.views.send' | trans }}
+        </button>
+    </div>
+</form>
+{% else %}
+{% if userPluginIsExists %}
+<div class="d-comment-form-please-login">
+    {{ 'dimsog.comments::lang.components.comments.views.please_login' | trans }}
+</div>
+{% else %}
+{{ 'dimsog.comments::lang.components.comments.views.form_disabled' | trans }}
+{% endif %}
+{% endif %}

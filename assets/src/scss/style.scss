@@ -1,0 +1,44 @@
+@import "toastify-js/src/toastify.css";
+@import "form";
+
+.d-comments-is-empty {
+    text-align: center;
+}
+
+.d-comment-item {
+    padding-top: 10px;
+    color: #000;
+}
+
+.d-comment-item:first-child {
+    padding-top: 0;
+}
+
+.d-comment-item .d-comment-item-answer .d-comment-item-answer__link {
+    text-decoration: none;
+    color: #838384;
+}
+
+.d-comment-item .d-comment-item-answer .d-comment-item-answer__link:hover {
+    text-decoration: none;
+    color: rgb(55, 100, 218);
+}
+
+.d-comment-item .d-comment-item-header {
+    display: flex;
+    align-items: center;
+}
+
+.d-comment-item .d-comment-item-header .d-comment-item-header__user {
+    font-weight: 600;
+    padding-right: 10px;
+}
+
+.d-comment-item .d-comment-item-header .d-comment-item-header__date {
+    font-size: 13px;
+    color: #8e8e8e;
+}
+
+.d-comment-item .d-comment-item {
+    padding-left: 15px;
+}

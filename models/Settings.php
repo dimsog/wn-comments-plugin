@@ -7,7 +7,7 @@ namespace Dimsog\Comments\Models;
 use Model;
 use System\Behaviors\SettingsModel;
 
-class Settings extends Model
+final class Settings extends Model
 {
     public $implement = [SettingsModel::class];
 
