@@ -1,23 +1,26 @@
-import serializeArrayToObject from "../helpers/serializeArrayToObject";
+import getValuesFromForm from "../helpers/getValuesFromForm";
 import Alert from "./Alert";
 import autosize from "autosize/dist/autosize";
+import htmlToDom from "../helpers/htmlToDom";
 
 export default class Form {
     static render($root, options) {
         return new Promise((resolve) => {
             this._loadForm()
                 .then((response) => {
-                    const $form = $(response.form);
-                    resolve($form);
-                    $form.find('input[name=parent_id]').val(options?.parentId ?? null);
-                    autosize($form.find('textarea'));
+                    const $form = htmlToDom(response.form);
+                    $form.querySelector('input[name=parent_id]').value = options?.parentId ?? null;
+                    $root.append($form);
 
-                    $form.on('submit', (e) => {
+                    resolve($form);
+                    autosize($form.querySelector('textarea'));
+
+                    $form.addEventListener('submit', (e) => {
                         e.preventDefault();
                         Alert.hideAlerts();
 
                         Snowboard.request('onCommentStore', {
-                            data: serializeArrayToObject($form.serializeArray()),
+                            data: getValuesFromForm($form),
                             success: (response) => {
                                 Alert.success(response.message);
                                 this._reset($form);
@@ -26,8 +29,7 @@ export default class Form {
                                 Alert.error(errors);
                             }
                         });
-                    })
-                    $root.append($form);
+                    });
                 }).catch((message) => {
                     Alert.error(message);
                 });
@@ -48,8 +50,8 @@ export default class Form {
     }
 
     static _reset($form) {
-        $form.find('input[type=text]').val('');
-        $form.find('input[type=email]').val('');
-        $form.find('textarea').val('');
+        $form.querySelector('input[type=text]').value = '';
+        $form.querySelector('input[type=email]').value = '';
+        $form.querySelector('textarea').value = '';
     }
 }
