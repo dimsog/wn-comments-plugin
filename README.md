@@ -29,6 +29,10 @@ Please check: https://www.php.net/supported-versions.php
 composer require dimsog/wn-comments-plugin
 ```
 
+```bash
+php artisan winter:up
+```
+
 ### How to use
 ```html
 title = "Demonstration"
