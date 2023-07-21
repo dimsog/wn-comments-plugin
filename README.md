@@ -24,6 +24,9 @@ Please check: https://www.php.net/supported-versions.php
 * PHP 8.1
 * PHP 8.2
 
+### Demo
+https://winterplugins.com/wn-comments-plugin
+
 ### Installation
 ```bash
 composer require dimsog/wn-comments-plugin
