@@ -1,6 +1,5 @@
 {% if showCommentsForm %}
-<form class="d-comment-form" id="{{ __SELF__ }}-comment-form"
-      data-request-success="onDimsogCommentsSendSuccess(document.querySelector('#{{ __SELF__ }}-comment-form'))">
+<form class="d-comment-form" id="{{ __SELF__ }}-comment-form">
     <div class="d-comment-form-fields">
         <input type="hidden" name="parent_id" value="">
         {% if userIsGuest or onlyForAuthUsers == false %}
