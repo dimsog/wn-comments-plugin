@@ -224,6 +224,7 @@ final class Comments extends ComponentBase
 
         return $this->renderPartial('@list', [
             'comments' => (new CommentsTreeGenerator($comments))->generate(),
+            'showCommentsForm' => $this->showCommentsForm(),
             'parentId' => 0,
             'tree' => $this->property('tree'),
             'dateformat' => $this->property('dateformat')

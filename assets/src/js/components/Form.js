@@ -9,11 +9,10 @@ export default class Form {
             this._loadForm()
                 .then((response) => {
                     const $form = htmlToDom(response.form);
-                    $form.querySelector('input[name=parent_id]').value = options?.parentId ?? null;
-                    $root.append($form);
+                    this._normalizeForm($form, options);
 
+                    $root.append($form);
                     resolve($form);
-                    autosize($form.querySelector('textarea'));
 
                     $form.addEventListener('submit', (e) => {
                         e.preventDefault();
@@ -30,9 +29,7 @@ export default class Form {
                             }
                         });
                     });
-                }).catch((message) => {
-                    Alert.error(message);
-                });
+                })
         });
     }
 
@@ -53,5 +50,16 @@ export default class Form {
         $form.querySelector('input[type=text]').value = '';
         $form.querySelector('input[type=email]').value = '';
         $form.querySelector('textarea').value = '';
+    }
+
+    static _normalizeForm($form, options) {
+        const $parentId = $form.querySelector('input[name=parent_id]');
+        const $textAreas = $form.querySelectorAll('textarea');
+        if ($parentId !== null) {
+            $parentId.value = options?.parentId ?? null;
+        }
+        for (const $textarea of $textAreas) {
+            autosize($textarea);
+        }
     }
 }

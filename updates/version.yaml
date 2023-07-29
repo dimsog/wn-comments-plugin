@@ -41,3 +41,6 @@
     - 'New: ui improvements'
 1.1.7:
     - 'Fix: do not load the form if the container is not found'
+1.1.8:
+    - 'New: hide answer button if user is not logged in'
+    - 'Fix: show message if user is not logged in'
