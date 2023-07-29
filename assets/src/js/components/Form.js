@@ -56,7 +56,7 @@ export default class Form {
         const $parentId = $form.querySelector('input[name=parent_id]');
         const $textAreas = $form.querySelectorAll('textarea');
         if ($parentId !== null) {
-            $form.querySelector('input[name=parent_id]').value = options?.parentId ?? null;
+            $parentId.value = options?.parentId ?? null;
         }
         for (const $textarea of $textAreas) {
             autosize($textarea);

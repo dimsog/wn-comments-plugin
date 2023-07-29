@@ -28,11 +28,13 @@
     </div>
 </form>
 {% else %}
-{% if userPluginIsExists %}
+    {% if userPluginIsExists %}
     <div class="d-comment-form-please-login">
         {{ 'dimsog.comments::lang.components.comments.views.please_login' | trans }}
     </div>
     {% else %}
+    <div class="d-comment-form-please-login">
         {{ 'dimsog.comments::lang.components.comments.views.form_disabled' | trans }}
+    </div>
     {% endif %}
 {% endif %}
