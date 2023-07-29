@@ -13,7 +13,7 @@
         <div class="d-comment-item__text">
             {{ comment.comment | nl2br }}
         </div>
-        {% if tree and comment.active %}
+        {% if tree and comment.active and showCommentsForm %}
         <div class="d-comment-item-answer">
             <a href="#" class="d-comment-item-answer__link app-d-comment-item-answer__link" data-comment-id="{{ comment.id }}" data-user-name="{{ comment.user_name ?? 'dimsog.comments::lang.components.comments.guest_name'  | trans }}">
                 {{ 'dimsog.comments::lang.components.comments.views.answer' | trans }}
